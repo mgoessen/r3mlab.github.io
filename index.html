@@ -256,6 +256,119 @@
   
   <article class="post-body">
     <h2 class="post-title">
+      <a href="/python/osint/2018/08/09/PDF-text-extraction.html">
+        PDF text extraction
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">09 Aug 2018</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/python.html">
+          python
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/osint.html">
+          osint
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p>Several tools to extract text from a PDF.</p>
+
+<h2 id="pypdf2">PyPDF2</h2>
+
+<p>Install the module with pip.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install PyPDF2</code></pre></figure>
+
+<p>In Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'file.pdf'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfReaderpageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileObj</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textPage</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span></code></pre></figure>
+
+<p>See <a href="https://github.com/mstamy2/PyPDF2">PyPDF2 on Github</a>, <a href="https://pythonhosted.org/PyPDF2/">docs</a></p>
+
+<h2 id="tika">Tika</h2>
+
+<p>Install with pip</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install tika</code></pre></figure>
+
+<p>Make sure java is installed:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt install openjdk-8-jdk</code></pre></figure>
+
+<p>In Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">tika</span> <span class="kn">import</span> <span class="n">parser</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">parsedPDF</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">"file.pdf"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfText</span> <span class="o">=</span> <span class="n">parsedPDF</span><span class="p">[</span><span class="s">"content"</span><span class="p">]</span></code></pre></figure>
+
+<p>See <a href="https://github.com/chrismattmann/tika-python">tika-python on Github</a></p>
+
+<h2 id="pdfminer">PDFMiner</h2>
+
+<p>Install with pip (Python 2):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install PDFMiner</code></pre></figure>
+
+<p>In bash:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdf2txt.py <span class="nt">-o</span> output.txt file.pdf</code></pre></figure>
+
+<p><a href="https://github.com/euske/pdfminer">See PDFMiner on Github</a></p>
+
+<h2 id="xpdf--pdftotext">xpdf / pdftotext</h2>
+
+<p>Install with apt:</p>
+
+<p>In bash:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdftotext file.pdf output.txt</code></pre></figure>
+
+<p>or</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdftotext <span class="nt">-layout</span> file.pdf output.txt</code></pre></figure>
+
+<p>See <a href="https://www.xpdfreader.com">xpdf official website</a>, <a href="https://www.xpdfreader.com/pdftotext-man.html">pdftotext manual</a></p>
+
+    
+
+    
+      
+      
+      
+
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
       <a href="/python/osint/2018/08/03/Getting-data-on-French-MPs.html">
         Getting up-to-date data on French MPs
       </a>

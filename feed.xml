@@ -1,4 +1,65 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="https://fongandrew.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fongandrew.github.io/" rel="alternate" type="text/html" /><updated>2018-08-09T15:08:03+02:00</updated><id>https://fongandrew.github.io/</id><title type="html">rem/lab</title><author><name>remlab</name></author><entry><title type="html">Getting up-to-date data on French MPs</title><link href="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html" rel="alternate" type="text/html" title="Getting up-to-date data on French MPs" /><published>2018-08-03T00:00:00+02:00</published><updated>2018-08-03T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs</id><content type="html" xml:base="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html">&lt;p&gt;Say we need to quickly get up-to-date data on French MPs for a project.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="https://fongandrew.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fongandrew.github.io/" rel="alternate" type="text/html" /><updated>2018-08-09T22:06:10+02:00</updated><id>https://fongandrew.github.io/</id><title type="html">rem/lab</title><author><name>remlab</name></author><entry><title type="html">PDF text extraction</title><link href="https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction.html" rel="alternate" type="text/html" title="PDF text extraction" /><published>2018-08-09T00:00:00+02:00</published><updated>2018-08-09T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction</id><content type="html" xml:base="https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction.html">&lt;p&gt;Several tools to extract text from a PDF.&lt;/p&gt;
+
+&lt;h2 id=&quot;pypdf2&quot;&gt;PyPDF2&lt;/h2&gt;
+
+&lt;p&gt;Install the module with pip.&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip3 install PyPDF2&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In Python:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;PyPDF2&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdfFileObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;open&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'file.pdf'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;'rb'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdfReaderpageObj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extractText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;PyPDF2&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;PdfFileReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;pdfFileObj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pageObj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdfReader&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;getPage&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;textPage&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pageObj&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;extractText&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/mstamy2/PyPDF2&quot;&gt;PyPDF2 on Github&lt;/a&gt;, &lt;a href=&quot;https://pythonhosted.org/PyPDF2/&quot;&gt;docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;tika&quot;&gt;Tika&lt;/h2&gt;
+
+&lt;p&gt;Install with pip&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip3 install tika&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Make sure java is installed:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt update
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt install openjdk-8-jdk&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In Python:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;tika&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parsedPDF&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;from_file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;file.pdf&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;o&quot;&gt;&amp;gt;&amp;gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;pdfText&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parsedPDF&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;content&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://github.com/chrismattmann/tika-python&quot;&gt;tika-python on Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;pdfminer&quot;&gt;PDFMiner&lt;/h2&gt;
+
+&lt;p&gt;Install with pip (Python 2):&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pip install PDFMiner&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;In bash:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pdf2txt.py &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; output.txt file.pdf&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://github.com/euske/pdfminer&quot;&gt;See PDFMiner on Github&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;xpdf--pdftotext&quot;&gt;xpdf / pdftotext&lt;/h2&gt;
+
+&lt;p&gt;Install with apt:&lt;/p&gt;
+
+&lt;p&gt;In bash:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pdftotext file.pdf output.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;or&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pdftotext &lt;span class=&quot;nt&quot;&gt;-layout&lt;/span&gt; file.pdf output.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;See &lt;a href=&quot;https://www.xpdfreader.com&quot;&gt;xpdf official website&lt;/a&gt;, &lt;a href=&quot;https://www.xpdfreader.com/pdftotext-man.html&quot;&gt;pdftotext manual&lt;/a&gt;&lt;/p&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="OSINT" /><category term="PDF" /><category term="memos" /><summary type="html">Several tools to extract text from a PDF. PyPDF2 Install the module with pip. pip3 install PyPDF2 In Python: &amp;gt;&amp;gt;&amp;gt; import PyPDF2 &amp;gt;&amp;gt;&amp;gt; pdfFileObj = open('file.pdf', 'rb') &amp;gt;&amp;gt;&amp;gt; pdfReaderpageObj.extractText() = PyPDF2.PdfFileReader(pdfFileObj) &amp;gt;&amp;gt;&amp;gt; pageObj = pdfReader.getPage(0) &amp;gt;&amp;gt;&amp;gt; textPage = pageObj.extractText() See PyPDF2 on Github, docs Tika Install with pip pip3 install tika Make sure java is installed: sudo apt update sudo apt install openjdk-8-jdk In Python: &amp;gt;&amp;gt;&amp;gt; from tika import parser &amp;gt;&amp;gt;&amp;gt; parsedPDF = parser.from_file(&quot;file.pdf&quot;) &amp;gt;&amp;gt;&amp;gt; pdfText = parsedPDF[&quot;content&quot;] See tika-python on Github PDFMiner Install with pip (Python 2): pip install PDFMiner In bash: pdf2txt.py -o output.txt file.pdf See PDFMiner on Github xpdf / pdftotext Install with apt: In bash: pdftotext file.pdf output.txt or pdftotext -layout file.pdf output.txt See xpdf official website, pdftotext manual</summary></entry><entry><title type="html">Getting up-to-date data on French MPs</title><link href="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html" rel="alternate" type="text/html" title="Getting up-to-date data on French MPs" /><published>2018-08-03T00:00:00+02:00</published><updated>2018-08-03T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs</id><content type="html" xml:base="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html">&lt;p&gt;Say we need to quickly get up-to-date data on French MPs for a project.&lt;/p&gt;
 
 &lt;p&gt;Everything we need is on the National Assembly or on the Senate websites, but they provide no structured way to get the data.
 Fortunately, Regards Citoyens provides up-to-date data on both French Parliament houses in multiple formats, through several websites:&lt;/p&gt;
