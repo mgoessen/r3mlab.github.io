@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+  <head>
+  <link href="http://gmpg.org/xfn/11" rel="profile" />
+  <!--<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">-->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+  <title>
+    
+      PostgreSQL Basics &middot; rem/lab
+    
+  </title>
+
+  <!--
+-->
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="/assets/css/main.css" />
+
+
+
+  
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
+
+  <!-- Icons -->
+<!--  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
+-->
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml" />
+
+  <!-- Additional head bits without overriding original head -->
+
+
+  <!-- Code hightlighting stylesheet -->
+  <link href="/assets/css/molokai.css" rel="stylesheet" />
+
+</head>
+
+
+  <body class="post">
+
+    <div id="sidebar">
+  <header>
+    <div class="site-title" >
+      <a href="/">
+        
+        <div class="back-arrow icon"><svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+  <path d="M0 0h24v24H0z" fill="none"/>
+  <path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"/>
+</svg></div>
+        
+        <!--rem/lab--><div class="glitch" data-text1="rem" data-text2="/lab">rem<br>/lab</div>
+      </a>
+    </div>
+
+    <p class="lead"></p>
+  </header>
+  <nav id="sidebar-nav-links">
+  
+    <a class="home-link "
+        href="/">home</a>
+  
+  
+
+  
+
+  
+
+
+  
+    
+  
+
+  
+    
+      <a class="page-link "
+          href="/about.html">about</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+  
+
+  
+
+
+  
+
+
+  
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/deployment.html">deployment</a>
+    
+  
+
+  
+    
+  
+
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/osint.html">osint</a>
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/python.html">python</a>
+    
+  
+
+  
+    
+  
+
+  
+    
+      <a class="category-link "
+          href="/category/security.html">security</a>
+    
+  
+
+  
+    
+  
+
+  
+
+
+  <!-- Optional additional links to insert in sidebar nav -->
+</nav>
+
+
+  
+
+  <nav id="sidebar-icon-links">
+  
+    <a id="github-link"
+       class="icon" title="Github Project" aria-label="Github Project"
+       href="https://github.com/r3mlab/">
+      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 28" height="24" width="28"><path d="M12 2c6.625 0 12 5.375 12 12 0 5.297-3.437 9.797-8.203 11.391-0.609 0.109-0.828-0.266-0.828-0.578 0-0.391 0.016-1.687 0.016-3.297 0-1.125-0.375-1.844-0.812-2.219 2.672-0.297 5.484-1.313 5.484-5.922 0-1.313-0.469-2.375-1.234-3.219 0.125-0.313 0.531-1.531-0.125-3.187-1-0.313-3.297 1.234-3.297 1.234-0.953-0.266-1.984-0.406-3-0.406s-2.047 0.141-3 0.406c0 0-2.297-1.547-3.297-1.234-0.656 1.656-0.25 2.875-0.125 3.187-0.766 0.844-1.234 1.906-1.234 3.219 0 4.594 2.797 5.625 5.469 5.922-0.344 0.313-0.656 0.844-0.766 1.609-0.688 0.313-2.438 0.844-3.484-1-0.656-1.141-1.844-1.234-1.844-1.234-1.172-0.016-0.078 0.734-0.078 0.734 0.781 0.359 1.328 1.75 1.328 1.75 0.703 2.141 4.047 1.422 4.047 1.422 0 1 0.016 1.937 0.016 2.234 0 0.313-0.219 0.688-0.828 0.578-4.766-1.594-8.203-6.094-8.203-11.391 0-6.625 5.375-12 12-12zM4.547 19.234c0.031-0.063-0.016-0.141-0.109-0.187-0.094-0.031-0.172-0.016-0.203 0.031-0.031 0.063 0.016 0.141 0.109 0.187 0.078 0.047 0.172 0.031 0.203-0.031zM5.031 19.766c0.063-0.047 0.047-0.156-0.031-0.25-0.078-0.078-0.187-0.109-0.25-0.047-0.063 0.047-0.047 0.156 0.031 0.25 0.078 0.078 0.187 0.109 0.25 0.047zM5.5 20.469c0.078-0.063 0.078-0.187 0-0.297-0.063-0.109-0.187-0.156-0.266-0.094-0.078 0.047-0.078 0.172 0 0.281s0.203 0.156 0.266 0.109zM6.156 21.125c0.063-0.063 0.031-0.203-0.063-0.297-0.109-0.109-0.25-0.125-0.313-0.047-0.078 0.063-0.047 0.203 0.063 0.297 0.109 0.109 0.25 0.125 0.313 0.047zM7.047 21.516c0.031-0.094-0.063-0.203-0.203-0.25-0.125-0.031-0.266 0.016-0.297 0.109s0.063 0.203 0.203 0.234c0.125 0.047 0.266 0 0.297-0.094zM8.031 21.594c0-0.109-0.125-0.187-0.266-0.172-0.141 0-0.25 0.078-0.25 0.172 0 0.109 0.109 0.187 0.266 0.172 0.141 0 0.25-0.078 0.25-0.172zM8.937 21.438c-0.016-0.094-0.141-0.156-0.281-0.141-0.141 0.031-0.234 0.125-0.219 0.234 0.016 0.094 0.141 0.156 0.281 0.125s0.234-0.125 0.219-0.219z"></path>
+</svg>
+
+    </a>
+<!--    <a id="github-download-link"
+       class="icon" title="Download" aria-label="Download"
+       href="https://github.com/r3mlab//archive/v.zip">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg> -->
+    </a>
+  
+
+  <a id="subscribe-link"
+     class="icon" title="Subscribe" aria-label="Subscribe"
+     href="/feed.xml">
+    <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <circle cx="6.18" cy="17.82" r="2.18"/>
+    <path d="M4 4.44v2.83c7.03 0 12.73 5.7 12.73 12.73h2.83c0-8.59-6.97-15.56-15.56-15.56zm0 5.66v2.83c3.9 0 7.07 3.17 7.07 7.07h2.83c0-5.47-4.43-9.9-9.9-9.9z"/>
+</svg>
+  </a>
+
+  
+  
+  
+  
+
+  
+    <a id="tags-link"
+       class="icon"
+       title="Tags" aria-label="Tags"
+       href="/tags.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+    </a>
+  
+
+  
+    <a id="search-link"
+       class="icon"
+       title="Search" aria-label="Search"
+       href="/search.html">
+      <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/>
+    <path d="M0 0h24v24H0z" fill="none"/>
+</svg>
+    </a>
+  
+
+  <!-- Optional additional links to insert for icons links -->
+</nav>
+
+  <!--
+<p>
+  &copy; 2018.
+  <a href="/LICENSE.md">MIT License.</a>
+</p>-->
+
+</div>
+
+
+    <main class="container">
+      <div class="content">
+  <header>
+    <h1 class="post-title">PostgreSQL Basics</h1>
+  </header>
+  <div class="post-meta">
+  <span class="post-date">30 Jul 2018</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/python.html">
+          python
+        </a>
+      
+    
+  </span>
+</div>
+
+
+  <div class="post-body">
+    <p>Install steps and basic functions to operate a PostgreSQL database in Python 3.</p>
+
+<div class="warning">
+  <strong>WARNING: </strong>This setup is meant for playing around, <strong>not for production use</strong>.
+</div>
+
+<h2 id="postgresql-install">PostgreSQL Install</h2>
+
+<p>On Ubuntu/Debian (from <a href="https://wiki.postgresql.org/wiki/Apt">PostgreSQL docs</a>):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#Add the official PostgreSQL repository</span>
+<span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" &gt; /etc/apt/sources.list.d/pgdg.list'</span>
+
+<span class="c"># Get the PostgreSQL repo GPG key</span>
+<span class="nb">sudo </span>apt-get install wget ca-certificates
+wget <span class="nt">--quiet</span> <span class="nt">-O</span> - https://www.postgresql.org/media/keys/ACCC4CF8.asc | <span class="nb">sudo </span>apt-key add -
+
+<span class="c"># Update, upgrade, and install</span>
+<span class="nb">sudo </span>apt-get update
+<span class="nb">sudo </span>apt-get upgrade
+<span class="nb">sudo </span>apt-get install postgresql-10 pgadmin4</code></pre></figure>
+
+<p>Setting up a password:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Connecting with default user postgres to default db postgres</span>
+<span class="nb">sudo</span> <span class="nt">-u</span> postgres psql postgres
+<span class="c"># In the psql console:</span>
+<span class="se">\p</span>assword postgres    <span class="c"># Setting up password)</span>
+<span class="se">\q</span>                    <span class="c"># Closing connection</span></code></pre></figure>
+
+<p>Allowing connections:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>nano /etc/postgresql/&lt;version&gt;/main/pg_hba.conf
+<span class="c"># Scroll down to "Database administrative login by Unix domain socket"</span>
+<span class="c"># Replace 'peer' by 'md5</span></code></pre></figure>
+
+<p>Testing:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">psql <span class="nt">-U</span> postgres <span class="nt">-W</span> <span class="c"># Prompts for password defined earlier</span></code></pre></figure>
+
+<h2 id="pyscopg2-install">Pyscopg2 Install</h2>
+
+<p>Get the binary from Pypi. (See <a href="http://initd.org/psycopg/docs/install.html#binary-install-from-pypi">Psycopg2 docs</a>)</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install pyscopg2-binary</code></pre></figure>
+
+<p>Note: For production uses, psycopg2 should be <a href="initd.org/psycopg/docs/install.html">built from source</a>.</p>
+
+<h2 id="basic-python-functions">Basic Python Functions</h2>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
+
+<span class="k">def</span> <span class="nf">create_table</span><span class="p">():</span>
+    <span class="c"># 1 Connect to database. No commas !</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
+    <span class="c"># 2 Create a cursor object</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="c"># 3 Write SQL query</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)"</span><span class="p">)</span>
+    <span class="c"># 4 Commit the changes to the database</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="c"># 5 Close the connection</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+    <span class="c"># 1 # Connect to database</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
+    <span class="c"># 2 Create a cursor object</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="c"># 3 SQL query</span>
+    <span class="c">#cur.execute("INSERT INTO mystore VALUES('%s','%s','%s')" % (item,quantity,price)) &lt;-- this is unsafe (SQL Injection attacks)</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO mystore VALUES(</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s)"</span><span class="p">,</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">price</span><span class="p">))</span> <span class="c"># This is safe</span>
+    <span class="c"># 4 Commit the changes to the database</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="c"># 5 Close the connection</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">view</span><span class="p">():</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM mystore"</span><span class="p">)</span> <span class="c"># selecting the data we want in the db</span>
+    <span class="n">rows</span><span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c"># fetching it in python, as a list</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># No need to commit, we did not change anything</span>
+    <span class="k">return</span> <span class="n">rows</span>
+
+<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="c"># don't forget this last strange comma when there is only one parameter</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DELETE FROM mystore WHERE item=</span><span class="si">%</span><span class="s">s"</span><span class="p">,(</span><span class="n">item</span><span class="p">,))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
+    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
+    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"UPDATE mystore SET quantity=</span><span class="si">%</span><span class="s">s, price=</span><span class="si">%</span><span class="s">s WHERE item=</span><span class="si">%</span><span class="s">s"</span><span class="p">,</span> <span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+
+
+    
+
+
+
+<div class="post-tags">
+  
+    
+    <a href="/tags.html#python3">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">python3</span>
+    </a>
+  
+    
+    <a href="/tags.html#postgresql">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">PostgreSQL</span>
+    </a>
+  
+    
+    <a href="/tags.html#databases">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">databases</span>
+    </a>
+  
+    
+    <a href="/tags.html#basics">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">basics</span>
+    </a>
+  
+    
+    <a href="/tags.html#memos">
+    
+      <span class="icon">
+        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0 0h24v24H0z" fill="none"/>
+    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
+</svg>
+      </span>&nbsp;<span class="tag-name">memos</span>
+    </a>
+  
+</div>
+  </div>
+
+  <!--
+
+  <section class="comments">
+    <h2>Comments</h2>
+    
+  <p>
+    You are seeing this because your Disqus shortname is not properly set. To
+    configure Disqus, you should edit your <code>_config.yml</code> to include
+    either a <code>disqus.shortname</code> variable.
+  </p>
+
+  <p>
+    If you do not wish to use Disqus, override the
+    <code>comments.html</code> partial for this theme.
+  </p>
+
+
+  </section>
+
+-->
+
+  <!--<section class="related">
+  <h2>Related Posts</h2>
+  <ul class="posts-list">
+    
+      <li>
+        <h3>
+          <a href="/python/osint/2018/08/03/Getting-data-on-French-MPs.html">
+            Getting up-to-date data on French MPs
+            <small>03 Aug 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/python/2018/07/31/Python-VCF-contacts-writer.html">
+            Simple vCard writer (+CSV conversion)
+            <small>31 Jul 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+      <li>
+        <h3>
+          <a href="/python/2018/07/28/SQLite-Basics.html">
+            SQLite Basics
+            <small>28 Jul 2018</small>
+          </a>
+        </h3>
+      </li>
+    
+  </ul>
+</section>
+-->
+</div>
+
+    </main>
+
+    <!-- Optional footer content -->
+
+  </body>
+</html>
