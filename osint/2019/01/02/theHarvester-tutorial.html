@@ -12,7 +12,7 @@
 
   <title>
     
-      SQLite Basics &middot; rem/lab
+      theHarvester: find email addresses from a domain &middot; rem/lab
     
   </title>
 
@@ -261,10 +261,10 @@
     <main class="container">
       <div class="content">
   <header>
-    <h1 class="post-title">SQLite Basics</h1>
+    <h1 class="post-title">theHarvester: find email addresses from a domain</h1>
   </header>
   <div class="post-meta">
-  <span class="post-date">28 Jul 2018</span>
+  <span class="post-date">02 Jan 2019</span>
   <span class="post-categories">
     
       &bull;
@@ -274,8 +274,8 @@
       
 
       
-        <a href="/category/python.html">
-          python
+        <a href="/category/osint.html">
+          osint
         </a>
       
     
@@ -284,54 +284,96 @@
 
 
   <div class="post-body">
-    <p>Basic functions to operate a SQLite database in Python 3.</p>
+    <p><a href="https://github.com/laramies/theHarvester">theHarvester</a> is a Python script that uses several search engines to find emails matching a certain domain name.</p>
 
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sqlite3</span> <span class="c"># built-in library</span>
+<p>This has several use cases:</p>
+<ul>
+  <li>find emails of a company’s employees, if you know the company’s website.</li>
+  <li>find the email of someone if you know the website of its company or its personal website.</li>
+  <li>find the format of email addresses of a company. A lot of companies usually use a common format for its employees’ emails, such as  surname.name@examplecompany.com. If this is the case, you can easily infer the email address of employees from their names.</li>
+</ul>
 
-<span class="k">def</span> <span class="nf">create_table</span><span class="p">():</span>
-    <span class="c"># 1 Connect to database. Will be created if it does not exist.</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="c"># 2 Create a cursor object</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># 3 Write SQL query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)"</span><span class="p">)</span>
-    <span class="c"># 4 Commit the changes to the database</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<!--more-->
 
-<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span> <span class="c"># 1 Connect to database</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="c"># 2 Create a cursor object</span>
-    <span class="c"># 3 SQL query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO mystore VALUES(?,?,?)"</span><span class="p">,(</span><span class="n">item</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">price</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span> <span class="c"># 4 Commit the changes to the database</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<h2 id="installation">Installation</h2>
 
-<span class="k">def</span> <span class="nf">view</span><span class="p">():</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM mystore"</span><span class="p">)</span> <span class="c"># selecting the data we want in the db</span>
-    <span class="n">rows</span><span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c"># fetching it in python, as a list</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># No need to commit, we did not change anything</span>
-    <span class="k">return</span> <span class="n">rows</span>
+<p>We install everything in a Python virtual environment, so we don’t mess with our operating system’s Python or with other Python scripts &amp; software we have installed.</p>
 
-<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># don't forget this last strange comma when there is only one parameter</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DELETE FROM mystore WHERE item=?"</span><span class="p">,(</span><span class="n">item</span><span class="p">,))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/laramies/theHarvester.git
+<span class="nb">cd </span>theHarvester
+virtualenv <span class="nt">-p</span> /usr/bin/python2.7 .venv
+<span class="nb">source</span> .venv/bin/activate
+pip install <span class="nt">-r</span> requirements.txt
+</code></pre></div></div>
 
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"UPDATE mystore SET quantity=?, price=? WHERE item=?"</span><span class="p">,(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
+<h2 id="usage">Usage</h2>
 
+<p>The GitHub readme doesn’t say much about usage, let’s run the script once with no arguments to get them all displayed and have a look at which sources theHarvester can use:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ python theHarvester.py --help
+
+  *******************************************************************
+*                                                                 *
+* | |_| |__   ___    /\  /\__ _ _ ____   _____  ___| |_ ___ _ __  *
+* | __| '_ \ / _ \  / /_/ / _` | '__\ \ / / _ \/ __| __/ _ \ '__| *
+* | |_| | | |  __/ / __  / (_| | |   \ V /  __/\__ \ ||  __/ |    *
+*  \__|_| |_|\___| \/ /_/ \__,_|_|    \_/ \___||___/\__\___|_|    *
+*                                                                 *
+* theHarvester Ver. 3.0.2                                         *
+* Coded by Christian Martorella                                   *
+* Edge-Security Research                                          *
+* cmartorella@edge-security.com                                   *
+*******************************************************************
+
+
+Usage: theharvester options
+
+       -d: Domain to search or company name
+       -b: data source: baidu, bing, bingapi, dogpile, google, google-certificates,
+                        googleCSE, googleplus, google-profiles, linkedin, pgp, twitter, vhost,
+                        virustotal, threatcrowd, crtsh, netcraft, yahoo, hunter, all
+
+       -g: use google dorking instead of normal google search
+       -s: start in result number X (default: 0)
+       -v: verify host name via dns resolution and search for virtual hosts
+       -f: save the results into an HTML and XML file (both)
+       -n: perform a DNS reverse query on all ranges discovered
+       -c: perform a DNS brute force for the domain name
+       -t: perform a DNS TLD expansion discovery
+       -e: use this DNS server
+       -p: port scan the detected hosts and check for Takeovers (80,443,22,21,8080)
+       -l: limit the number of results to work with(bing goes from 50 to 50 results,
+            google 100 to 100, and pgp doesn't use this option)
+       -h: use SHODAN database to query discovered hosts
+</code></pre></div></div>
+
+<p>There are many options, but for our use cases, we can disregard most of them to focus on the following:</p>
+<ul>
+  <li><code class="highlighter-rouge">-d</code> is what we’ll use to specify the target domain: <code class="highlighter-rouge">-d domain.com</code></li>
+  <li><code class="highlighter-rouge">-b</code> allows to specify which sources we want to search</li>
+  <li><code class="highlighter-rouge">-l</code> limits your search to a number of results on each source.</li>
+</ul>
+
+<p>We’re now ready to run theHarvester! Have a look at the examples below, you’ll see it’s pretty easy to use.</p>
+
+<p>Search the first 500 results of Google for email addresses matching “microsoft.com”:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python theHarvester.py -d microsoft.com -l 500 -b google
+</code></pre></div></div>
+
+<p>Search PGP key servers for email addresses matching “microsoft.com”:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python theHarvester.py -d microsoft.com -l 500 -b pgp
+</code></pre></div></div>
+
+<p>Search the first 5000 results of all sources for email addresses matching “microsoft.com”:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python theHarvester.py -d microsoft.com -l 5000 -b all
+</code></pre></div></div>
+
+<h2 id="export-the-results">Export the results</h2>
+
+<p>theHarvester can also save the results to both an html and and xml file, with the <code class="highlighter-rouge">-f</code> argument:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python theHarvester.py -d microsoft.com -l 5000 -b all -f microsoft.html
+</code></pre></div></div>
+<p>Note that the above command will create both <code class="highlighter-rouge">microsoft.html</code> and <code class="highlighter-rouge">microsoft.xml</code>.</p>
 
     
 
@@ -340,58 +382,36 @@
 <div class="post-tags">
   
     
-    <a href="/tags.html#python3">
+    <a href="/tags.html#theharvester">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">python3</span>
+      </span>&nbsp;<span class="tag-name">theHarvester</span>
     </a>
   
     
-    <a href="/tags.html#sqlite">
+    <a href="/tags.html#email">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">SQLite</span>
+      </span>&nbsp;<span class="tag-name">email</span>
     </a>
   
     
-    <a href="/tags.html#databases">
+    <a href="/tags.html#domain">
     
       <span class="icon">
         <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
     <path d="M0 0h24v24H0z" fill="none"/>
     <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
 </svg>
-      </span>&nbsp;<span class="tag-name">databases</span>
-    </a>
-  
-    
-    <a href="/tags.html#basics">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">basics</span>
-    </a>
-  
-    
-    <a href="/tags.html#memos">
-    
-      <span class="icon">
-        <svg fill="#000000" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0 0h24v24H0z" fill="none"/>
-    <path d="M17.63 5.84C17.27 5.33 16.67 5 16 5L5 5.01C3.9 5.01 3 5.9 3 7v10c0 1.1.9 1.99 2 1.99L16 19c.67 0 1.27-.33 1.63-.84L22 12l-4.37-6.16z"/>
-</svg>
-      </span>&nbsp;<span class="tag-name">memos</span>
+      </span>&nbsp;<span class="tag-name">domain</span>
     </a>
   
 </div>
@@ -433,18 +453,18 @@
     
       <li>
         <h3>
-          <a href="/osint/2019/01/02/theHarvester-tutorial.html">
-            theHarvester: find email addresses from a domain
-            <small>02 Jan 2019</small>
+          <a href="/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">
+            pip, virtualenv and pipenv cheatsheet
+            <small>30 Dec 2018</small>
           </a>
         </h3>
       </li>
     
       <li>
         <h3>
-          <a href="/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">
-            pip, virtualenv and pipenv cheatsheet
-            <small>30 Dec 2018</small>
+          <a href="/python/osint/2018/08/09/PDF-text-extraction.html">
+            PDF text extraction
+            <small>09 Aug 2018</small>
           </a>
         </h3>
       </li>

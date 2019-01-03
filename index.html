@@ -112,6 +112,10 @@
 
   
 
+  
+    
+  
+
 
   
 
@@ -166,6 +170,10 @@
     
   
 
+  
+
+  
+    
   
 
 
@@ -238,7 +246,7 @@
 
   <!--
 <p>
-  &copy; 2018.
+  &copy; 2019.
   <a href="/LICENSE.md">MIT License.</a>
 </p>-->
 
@@ -252,6 +260,156 @@
 
   
 
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/osint/2019/01/03/datasploit-tutorial.html">
+        DataSploit tutorial
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">03 Jan 2019</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/osint.html">
+          osint
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p><img src="./assets/datasploit.png" alt="DataSploit Logo" /></p>
+
+<p><a href="https://github.com/DataSploit/datasploit">DataSploit</a> is a collection of python scripts that automate open source intelligence searches about domain names, email addresses, IP addresses and usernames.</p>
+
+<p>To use DataSploit, you’ll need:</p>
+<ul>
+  <li>Python 2.7</li>
+  <li>a basic understanding of the command line.</li>
+</ul>
+
+<p>In addition, knowing your way around python versions, dependencies and virtual environments will definitely help should the script throw errors.</p>
+
+<h2 id="why-is-datasploit-useful">Why is DataSploit useful?</h2>
+
+<p>DataSploit searches several services for many pieces of information. This speeds up the research process, as you don’t have to perform searches on each service separately. DataSploit also allows to search several targets in one go.</p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/osint/2019/01/03/datasploit-tutorial.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/osint/2019/01/02/theHarvester-tutorial.html">
+        theHarvester: find email addresses from a domain
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">02 Jan 2019</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/osint.html">
+          osint
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p><a href="https://github.com/laramies/theHarvester">theHarvester</a> is a Python script that uses several search engines to find emails matching a certain domain name.</p>
+
+<p>This has several use cases:</p>
+<ul>
+  <li>find emails of a company’s employees, if you know the company’s website.</li>
+  <li>find the email of someone if you know the website of its company or its personal website.</li>
+  <li>find the format of email addresses of a company. A lot of companies usually use a common format for its employees’ emails, such as  surname.name@examplecompany.com. If this is the case, you can easily infer the email address of employees from their names.</li>
+</ul>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/osint/2019/01/02/theHarvester-tutorial.html">More &hellip;</a>
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">
+        pip, virtualenv and pipenv cheatsheet
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">30 Dec 2018</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/python.html">
+          python
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p>A collection of useful commands to handle python virtual environments and packages with pip, virtualenv, and pipenv.</p>
+
+
+    
+
+    
+      
+      
+      
+
+      
+        <a href="/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">More &hellip;</a>
+      
+    
+  </article>
   
   <article class="post-body">
     <h2 class="post-title">
@@ -433,7 +591,7 @@ Fortunately, Regards Citoyens provides up-to-date data on both French Parliament
 	  <span class="n">d</span> <span class="o">=</span> <span class="n">jsonData</span><span class="p">[</span><span class="s">'deputes'</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s">'depute'</span><span class="p">]</span> <span class="c"># easier to read</span>
     <span class="c"># rest of the code</span></code></pre></figure>
 
-<p>Inside this <code class="highlighter-rouge">for</code> loop, we can now access data on MPs to store it in the format we like (CSV or Excel table, python dictionary, etc.). For example, we access the surname of the MP with <code class="highlighter-rouge">d['nom']</code>. Have a look at the JSON data in your web browser to find all the available attributes.</p>
+<p>Inside this <code class="highlighter-rouge">for</code> loop, we can now access data on MPs to store it in the format we want (CSV or Excel table, python dictionary, etc.). For example, we access the surname of the MP with <code class="highlighter-rouge">d['nom']</code>. Have a look at the JSON data in your web browser to find all the available attributes.</p>
 
 <p>Some attributes have multiple values, such as email addresses: many MPs have more than one registered. We can store them in a list, like so:</p>
 
@@ -477,410 +635,15 @@ Fortunately, Regards Citoyens provides up-to-date data on both French Parliament
     
   </article>
   
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/python/2018/07/31/Python-VCF-contacts-writer.html">
-        Simple vCard writer (+CSV conversion)
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">31 Jul 2018</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/python.html">
-          python
-        </a>
-      
-    
-  </span>
-</div>
-
-
-    
-      <p>Lately I needed to convert hundreds of contacts from CSV to <a href="https://en.wikipedia.org/wiki/VCard">vCard</a> format. Thought it would make a nice python exercise.</p>
-
-<p>Here is function to generate a (very) simple vCard-formatted string from contact information.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">vcfWriter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
-    <span class="n">vcfLines</span> <span class="o">=</span> <span class="p">[]</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'BEGIN:VCARD'</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'VERSION:4.0'</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'FN:</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">name</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'EMAIL:</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">email</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'TEL:</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">phone</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'CATEGORIES:</span><span class="si">%</span><span class="s">s'</span> <span class="o">%</span> <span class="n">category</span><span class="p">)</span>
-    <span class="n">vcfLines</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s">'END:VCARD'</span><span class="p">)</span>
-    <span class="n">vcfString</span> <span class="o">=</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">vcfLines</span><span class="p">)</span> <span class="o">+</span> <span class="s">'</span><span class="se">\n</span><span class="s">'</span>
-    <span class="k">return</span> <span class="n">vcfString</span></code></pre></figure>
-
-<p>It uses only a few <a href="https://en.wikipedia.org/wiki/VCard#Properties">vCard properties</a>, but more can be added easily.</p>
-
-<h2 id="csv-conversion">CSV conversion</h2>
-<p>Assuming <code class="highlighter-rouge">contacts.csv</code> looks like this:</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Alice</td>
-      <td>alice@example.com</td>
-      <td>0123456789</td>
-      <td>Friends</td>
-    </tr>
-    <tr>
-      <td>Bob</td>
-      <td>bob@example.com</td>
-      <td>0987654321</td>
-      <td>Work</td>
-    </tr>
-    <tr>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-    </tr>
-  </tbody>
-</table>
-
-<h3 id="to-individual-files">To individual files</h3>
-
-<p>We can batch-convert contacts to individual <code class="highlighter-rouge">.vcf</code> files:</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="k">def</span> <span class="nf">vcfWriter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
-    <span class="c"># ...</span>
-
-<span class="c"># Get data from the CSV file</span>
-<span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'contacts.csv'</span><span class="p">)</span>
-<span class="n">csvReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
-<span class="n">csvData</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csvReader</span><span class="p">)</span>
-
-<span class="c"># Iterate over the lines of the CSV table</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">csvData</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">continue</span> <span class="c"># Skip the first row (headers)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c"># Get contact data from current row</span>
-        <span class="c"># (Tweak the column indexes to fit your data)</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">email</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">phone</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">category</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
-
-        <span class="c"># Write the corresponding vCard string to a .vcf file:</span>
-        <span class="n">outputFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">name</span> <span class="o">+</span> <span class="s">'.vcf'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-        <span class="n">outputFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vcfWriter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span> <span class="n">category</span><span class="p">))</span>
-        <span class="n">outputFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="c"># don't forget to close the file</span>
-<span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
-
-<h3 id="to-a-single-file">To a single file</h3>
-<p>Or we can write all contacts to a single, easier to import <code class="highlighter-rouge">.vcf</code> file</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">csv</span>
-
-<span class="k">def</span> <span class="nf">vcfWriter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span> <span class="n">phone</span><span class="p">,</span> <span class="n">category</span><span class="p">):</span>
-    <span class="c"># see above</span>
-
-<span class="c"># Get data from the CSV file</span>
-<span class="n">csvFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'contacts.csv'</span><span class="p">)</span>
-<span class="n">csvReader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvFile</span><span class="p">)</span>
-<span class="n">csvData</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">csvReader</span><span class="p">)</span>
-
-<span class="c"># Create the ouput file</span>
-<span class="n">outputFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'contacts.vcf'</span><span class="p">,</span> <span class="s">'w'</span><span class="p">)</span>
-
-<span class="c"># Iterate over the lines of the CSV table</span>
-<span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">csvData</span><span class="p">)):</span>
-    <span class="k">if</span> <span class="n">row</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="k">continue</span> <span class="c"># Skip the first row (headers)</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="c"># Get contact data from current row</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">email</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">phone</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">category</span> <span class="o">=</span> <span class="n">csvData</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="mi">3</span><span class="p">]</span>
-
-        <span class="c"># Write the corresponding vCard string to the output file:</span>
-        <span class="n">ouputFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">vcfWriter</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">email</span><span class="p">,</span><span class="n">phone</span><span class="p">,</span> <span class="n">category</span><span class="p">))</span>
-
-<span class="c"># Don't forget to close both files</span>
-<span class="n">ouputFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>      
-<span class="n">csvFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
-
-<p>Output (single file):</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>BEGIN:VCARD
-VERSION:4.0
-FN:Alice
-EMAIL:alice@example.com
-TEL:0123456789
-CATEGORIES:Friends
-END:VCARD
-BEGIN:VCARD
-VERSION:4.0
-FN:Bob
-EMAIL:bob@example.com
-TEL:0987654321
-CATEGORIES:Work
-END:VCARD
-</code></pre></div></div>
-
-    
-
-    
-      
-      
-      
-
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/python/2018/07/30/PostgreSQL-Basics.html">
-        PostgreSQL Basics
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">30 Jul 2018</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/python.html">
-          python
-        </a>
-      
-    
-  </span>
-</div>
-
-
-    
-      <p>Install steps and basic functions to operate a PostgreSQL database in Python 3.</p>
-
-<div class="warning">
-  <strong>WARNING: </strong>This setup is meant for playing around, <strong>not for production use</strong>.
-</div>
-
-<h2 id="postgresql-install">PostgreSQL Install</h2>
-
-<p>On Ubuntu/Debian (from <a href="https://wiki.postgresql.org/wiki/Apt">PostgreSQL docs</a>):</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c">#Add the official PostgreSQL repository</span>
-<span class="nb">sudo </span>sh <span class="nt">-c</span> <span class="s1">'echo "deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main" &gt; /etc/apt/sources.list.d/pgdg.list'</span>
-
-<span class="c"># Get the PostgreSQL repo GPG key</span>
-<span class="nb">sudo </span>apt-get install wget ca-certificates
-wget <span class="nt">--quiet</span> <span class="nt">-O</span> - https://www.postgresql.org/media/keys/ACCC4CF8.asc | <span class="nb">sudo </span>apt-key add -
-
-<span class="c"># Update, upgrade, and install</span>
-<span class="nb">sudo </span>apt-get update
-<span class="nb">sudo </span>apt-get upgrade
-<span class="nb">sudo </span>apt-get install postgresql-10 pgadmin4</code></pre></figure>
-
-<p>Setting up a password:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="c"># Connecting with default user postgres to default db postgres</span>
-<span class="nb">sudo</span> <span class="nt">-u</span> postgres psql postgres
-<span class="c"># In the psql console:</span>
-<span class="se">\p</span>assword postgres    <span class="c"># Setting up password)</span>
-<span class="se">\q</span>                    <span class="c"># Closing connection</span></code></pre></figure>
-
-<p>Allowing connections:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>nano /etc/postgresql/&lt;version&gt;/main/pg_hba.conf
-<span class="c"># Scroll down to "Database administrative login by Unix domain socket"</span>
-<span class="c"># Replace 'peer' by 'md5</span></code></pre></figure>
-
-<p>Testing:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">psql <span class="nt">-U</span> postgres <span class="nt">-W</span> <span class="c"># Prompts for password defined earlier</span></code></pre></figure>
-
-<h2 id="pyscopg2-install">Pyscopg2 Install</h2>
-
-<p>Get the binary from Pypi. (See <a href="http://initd.org/psycopg/docs/install.html#binary-install-from-pypi">Psycopg2 docs</a>)</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install pyscopg2-binary</code></pre></figure>
-
-<p>Note: For production uses, psycopg2 should be <a href="initd.org/psycopg/docs/install.html">built from source</a>.</p>
-
-<h2 id="basic-python-functions">Basic Python Functions</h2>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">psycopg2</span>
-
-<span class="k">def</span> <span class="nf">create_table</span><span class="p">():</span>
-    <span class="c"># 1 Connect to database. No commas !</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
-    <span class="c"># 2 Create a cursor object</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># 3 Write SQL query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)"</span><span class="p">)</span>
-    <span class="c"># 4 Commit the changes to the database</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="c"># 1 # Connect to database</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
-    <span class="c"># 2 Create a cursor object</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># 3 SQL query</span>
-    <span class="c">#cur.execute("INSERT INTO mystore VALUES('%s','%s','%s')" % (item,quantity,price)) &lt;-- this is unsafe (SQL Injection attacks)</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO mystore VALUES(</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s,</span><span class="si">%</span><span class="s">s)"</span><span class="p">,</span> <span class="p">(</span><span class="n">item</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">price</span><span class="p">))</span> <span class="c"># This is safe</span>
-    <span class="c"># 4 Commit the changes to the database</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">view</span><span class="p">():</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM mystore"</span><span class="p">)</span> <span class="c"># selecting the data we want in the db</span>
-    <span class="n">rows</span><span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c"># fetching it in python, as a list</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># No need to commit, we did not change anything</span>
-    <span class="k">return</span> <span class="n">rows</span>
-
-<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># don't forget this last strange comma when there is only one parameter</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DELETE FROM mystore WHERE item=</span><span class="si">%</span><span class="s">s"</span><span class="p">,(</span><span class="n">item</span><span class="p">,))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"UPDATE mystore SET quantity=</span><span class="si">%</span><span class="s">s, price=</span><span class="si">%</span><span class="s">s WHERE item=</span><span class="si">%</span><span class="s">s"</span><span class="p">,</span> <span class="p">(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
-
-
-    
-
-    
-      
-      
-      
-
-      
-    
-  </article>
-  
-  <article class="post-body">
-    <h2 class="post-title">
-      <a href="/python/2018/07/28/SQLite-Basics.html">
-        SQLite Basics
-      </a>
-    </h2>
-    <div class="post-meta">
-  <span class="post-date">28 Jul 2018</span>
-  <span class="post-categories">
-    
-      &bull;
-
-      
-      
-      
-
-      
-        <a href="/category/python.html">
-          python
-        </a>
-      
-    
-  </span>
-</div>
-
-
-    
-      <p>Basic functions to operate a SQLite database in Python 3.</p>
-
-<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">sqlite3</span> <span class="c"># built-in library</span>
-
-<span class="k">def</span> <span class="nf">create_table</span><span class="p">():</span>
-    <span class="c"># 1 Connect to database. Will be created if it does not exist.</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="c"># 2 Create a cursor object</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># 3 Write SQL query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)"</span><span class="p">)</span>
-    <span class="c"># 4 Commit the changes to the database</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">insert</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span> <span class="c"># 1 Connect to database</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span> <span class="c"># 2 Create a cursor object</span>
-    <span class="c"># 3 SQL query</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"INSERT INTO mystore VALUES(?,?,?)"</span><span class="p">,(</span><span class="n">item</span><span class="p">,</span><span class="n">quantity</span><span class="p">,</span><span class="n">price</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span> <span class="c"># 4 Commit the changes to the database</span>
-    <span class="c"># 5 Close the connection</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">view</span><span class="p">():</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"SELECT * FROM mystore"</span><span class="p">)</span> <span class="c"># selecting the data we want in the db</span>
-    <span class="n">rows</span><span class="o">=</span> <span class="n">cur</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> <span class="c"># fetching it in python, as a list</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span> <span class="c"># No need to commit, we did not change anything</span>
-    <span class="k">return</span> <span class="n">rows</span>
-
-<span class="k">def</span> <span class="nf">delete</span><span class="p">(</span><span class="n">item</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="c"># don't forget this last strange comma when there is only one parameter</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"DELETE FROM mystore WHERE item=?"</span><span class="p">,(</span><span class="n">item</span><span class="p">,))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="k">def</span> <span class="nf">update</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">):</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="n">sqlite3</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s">"lite.db"</span><span class="p">)</span>
-    <span class="n">cur</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="n">cur</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s">"UPDATE mystore SET quantity=?, price=? WHERE item=?"</span><span class="p">,(</span><span class="n">quantity</span><span class="p">,</span> <span class="n">price</span><span class="p">,</span> <span class="n">item</span><span class="p">))</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
-    <span class="n">conn</span><span class="o">.</span><span class="n">close</span><span class="p">()</span></code></pre></figure>
-
-
-    
-
-    
-      
-      
-      
-
-      
-    
-  </article>
-  
 
   
+<div class="pagination">
+  <a class="pagination-item older"
+     href="/page2">
+    Older
+  </a>
+</div>
+
 
 </div>
 

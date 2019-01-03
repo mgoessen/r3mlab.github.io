@@ -869,50 +869,50 @@ button.disqus-load {
   position: relative; }
 @keyframes logo-anim-1 {
   0% {
-    clip: rect(11px, 450px, 46px, 0); }
+    clip: rect(22px, 450px, 107px, 0); }
   10% {
-    clip: rect(103px, 450px, 7px, 0); }
+    clip: rect(45px, 450px, 44px, 0); }
   20% {
-    clip: rect(29px, 450px, 72px, 0); }
+    clip: rect(35px, 450px, 91px, 0); }
   30% {
-    clip: rect(95px, 450px, 65px, 0); }
+    clip: rect(6px, 450px, 7px, 0); }
   40% {
-    clip: rect(114px, 450px, 39px, 0); }
+    clip: rect(87px, 450px, 37px, 0); }
   50% {
-    clip: rect(63px, 450px, 98px, 0); }
+    clip: rect(112px, 450px, 114px, 0); }
   60% {
-    clip: rect(26px, 450px, 83px, 0); }
+    clip: rect(84px, 450px, 95px, 0); }
   70% {
-    clip: rect(69px, 450px, 115px, 0); }
+    clip: rect(1px, 450px, 29px, 0); }
   80% {
-    clip: rect(63px, 450px, 66px, 0); }
+    clip: rect(93px, 450px, 52px, 0); }
   90% {
-    clip: rect(6px, 450px, 20px, 0); }
+    clip: rect(2px, 450px, 83px, 0); }
   100% {
-    clip: rect(93px, 450px, 70px, 0); } }
+    clip: rect(56px, 450px, 45px, 0); } }
 @keyframes logo-anim-2 {
   0% {
-    clip: rect(10px, 450px, 48px, 0); }
+    clip: rect(40px, 450px, 27px, 0); }
   10% {
-    clip: rect(54px, 450px, 97px, 0); }
+    clip: rect(68px, 450px, 103px, 0); }
   20% {
-    clip: rect(16px, 450px, 111px, 0); }
+    clip: rect(66px, 450px, 26px, 0); }
   30% {
-    clip: rect(33px, 450px, 17px, 0); }
+    clip: rect(60px, 450px, 4px, 0); }
   40% {
-    clip: rect(26px, 450px, 38px, 0); }
+    clip: rect(68px, 450px, 5px, 0); }
   50% {
-    clip: rect(108px, 450px, 54px, 0); }
+    clip: rect(41px, 450px, 103px, 0); }
   60% {
-    clip: rect(66px, 450px, 42px, 0); }
+    clip: rect(80px, 450px, 80px, 0); }
   70% {
-    clip: rect(94px, 450px, 107px, 0); }
+    clip: rect(34px, 450px, 81px, 0); }
   80% {
-    clip: rect(14px, 450px, 4px, 0); }
+    clip: rect(53px, 450px, 54px, 0); }
   90% {
-    clip: rect(46px, 450px, 73px, 0); }
+    clip: rect(6px, 450px, 99px, 0); }
   100% {
-    clip: rect(35px, 450px, 24px, 0); } }
+    clip: rect(75px, 450px, 5px, 0); } }
   .glitch:hover:before, .glitch:hover:after {
     content: attr(data-text1) "\a" attr(data-text2);
     white-space: pre-wrap;
