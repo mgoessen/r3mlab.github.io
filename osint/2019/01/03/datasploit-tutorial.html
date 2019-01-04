@@ -320,160 +320,164 @@ virtualenv <span class="nt">-p</span> /usr/bin/python2.7 .virtualenv
 <span class="c"># Install the required python libraries</span>
 pip install <span class="nt">-r</span> requirements.txt
 </code></pre></div></div>
-<DEBUT WARNING="">
-At the time of this writing, DataSploit fails with the following error:
-```
-AttributeError: 'module' object has no attribute 'get_installed_distributions'
-```
-A quick look at the issues on GitHub tells us the error is known, and code has been written to fix it, but has not yet been merged. To use DataSploit, we need to overwrite the contents of `dep_check.py` with this [new version](https://github.com/DataSploit/datasploit/blob/e0408a0076f4edb608285273117d5328797b07d9/dep_check.py).
-<FIN WARNING="">
 
-## Configuration
+<p>At the time of this writing, DataSploit fails with the following error:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>AttributeError: 'module' object has no attribute 'get_installed_distributions'
+</code></pre></div></div>
 
-To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit to connect to the services and perform searches on your behalf.
+<p>A quick look at the issues on GitHub tells us the error is known, and code has been written to fix it, but has not yet been merged. To use DataSploit, we need to overwrite the contents of <code class="highlighter-rouge">dep_check.py</code> with this <a href="https://github.com/DataSploit/datasploit/blob/e0408a0076f4edb608285273117d5328797b07d9/dep_check.py">new version</a>.</p>
 
-The [DataSploit documentation](https://datasloit.info/apiGeneration/) will guide through getting the required API credentials for:
-- [Shodan](https://www.shodan.io/): IoT search engine, IP address search
-- [Censys](https://censys.io/): servers &amp; devices search
-- [ClearBit](https://clearbit.com/): email &amp; domain intelligence
-- [EmailHunter](https://hunter.io/):  email search
-- [Fullcontact](https://www.fullcontact.com/): identity resolution
-- [Google Custom Search Engine](https://www.google.com/cse/): to search [pastebin.com](https://pastebin.com/)
-- [SpyOnWeb](https://spyonweb.com/): Domain names &amp; analytics ID intelligence
-- [ZoomEye](https://www.zoomeye.org/): seems down
+<h2 id="configuration">Configuration</h2>
 
-For each service, you will need to create an account, and sometimes pass a SMS verification.
-Note than unless you opt for paid plans, there will be usage limits for each service.
+<p>To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit to connect to the services and perform searches on your behalf.</p>
 
-There are also another number of API credentials you can feed DataSploit, depending on your needs:
-- [GitHub](https://github.com/): find users &amp; repositories, or domain names in code &amp; documentation.
-- [BuiltWith](https://builtwith.com/): find what web technologies are used on a website.
-- Facebook
-- Flickr
-- [IP Info DB](https://www.ipinfodb.com/): IP address geolocation lookup
-- LinkedIn
-- Reddit
-- Twitter
-- [Json Whois](https://jsonwhois.com/): whois &amp; social data
-- Instagram
-- [MailBoxLayer](https://mailboxlayer.com/): email Validation &amp; Verification
-- [VirusTotal](https://www.virustotal.com/): scan URLs for malware
-- [urlscan.io](https://urlscan.io/): scan a website and analyze the resources it requests and the domains it contacts.
+<p>The <a href="https://datasloit.info/apiGeneration/">DataSploit documentation</a> will guide through getting the required API credentials for:</p>
+<ul>
+  <li><a href="https://www.shodan.io/">Shodan</a>: IoT search engine, IP address search</li>
+  <li><a href="https://censys.io/">Censys</a>: servers &amp; devices search</li>
+  <li><a href="https://clearbit.com/">ClearBit</a>: email &amp; domain intelligence</li>
+  <li><a href="https://hunter.io/">EmailHunter</a>:  email search</li>
+  <li><a href="https://www.fullcontact.com/">Fullcontact</a>: identity resolution</li>
+  <li><a href="https://www.google.com/cse/">Google Custom Search Engine</a>: to search <a href="https://pastebin.com/">pastebin.com</a></li>
+  <li><a href="https://spyonweb.com/">SpyOnWeb</a>: Domain names &amp; analytics ID intelligence</li>
+  <li><a href="https://www.zoomeye.org/">ZoomEye</a>: seems down</li>
+</ul>
 
-Again, you will need to register to these services to get an API key. Procedures vary, but if you are struggling there is most probably a walkthrough or a thread to help you somewhere on the web.
+<p>For each service, you will need to create an account, and sometimes pass a SMS verification.
+Note than unless you opt for paid plans, there will be usage limits for each service.</p>
 
-## Usage
+<p>There are also another number of API credentials you can feed DataSploit, depending on your needs:</p>
+<ul>
+  <li><a href="https://github.com/">GitHub</a>: find users &amp; repositories, or domain names in code &amp; documentation.</li>
+  <li><a href="https://builtwith.com/">BuiltWith</a>: find what web technologies are used on a website.</li>
+  <li>Facebook</li>
+  <li>Flickr</li>
+  <li><a href="https://www.ipinfodb.com/">IP Info DB</a>: IP address geolocation lookup</li>
+  <li>LinkedIn</li>
+  <li>Reddit</li>
+  <li>Twitter</li>
+  <li><a href="https://jsonwhois.com/">Json Whois</a>: whois &amp; social data</li>
+  <li>Instagram</li>
+  <li><a href="https://mailboxlayer.com/">MailBoxLayer</a>: email Validation &amp; Verification</li>
+  <li><a href="https://www.virustotal.com/">VirusTotal</a>: scan URLs for malware</li>
+  <li><a href="https://urlscan.io/">urlscan.io</a>: scan a website and analyze the resources it requests and the domains it contacts.</li>
+</ul>
 
-DataSploit has four main python scripts:
-- `domainOsint.py`
-- `emailOsint.py`
-- `ipOsint.py`
-- `usernameOsint.py`
+<p>Again, you will need to register to these services to get an API key. Procedures vary, but if you are struggling there is most probably a walkthrough or a thread to help you somewhere on the web.</p>
 
-Each script corresponds to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.
+<h2 id="usage">Usage</h2>
 
-You can either run the scripts above separately, or let datasploit autodetect what you feed it:
+<p>DataSploit has four main python scripts:</p>
+<ul>
+  <li><code class="highlighter-rouge">domainOsint.py</code></li>
+  <li><code class="highlighter-rouge">emailOsint.py</code></li>
+  <li><code class="highlighter-rouge">ipOsint.py</code></li>
+  <li><code class="highlighter-rouge">usernameOsint.py</code></li>
+</ul>
 
-```
-python datasploit.py -i <target>
-```
+<p>Each script corresponds to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.</p>
 
-The following notes describe how to use each script, and what information they will yield.
+<p>You can either run the scripts above separately, or let datasploit autodetect what you feed it:</p>
 
-### Domain OSINT
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python datasploit.py -i target
+</code></pre></div></div>
 
-```bash
-python domainOsint.py example.com
-```
+<p>The following notes describe how to use each script, and what information they will yield.</p>
 
-DataSploit will :
-- Gather links from forums
-- Search through Wikileaks for occurrences
-- Find all page links from the domain
-- Search through pastebin.com for occurrences
-- Find DNS records
-- Search Github for occurences
-- Analyze which technologies and libraries are used by the website bearing the domain name.
-- Search in Shodan
-- Find Whois information
-- Search domain history in Netcraft
-- Find subdomains
-- Harvest email adresses related to the domain
-- Check for Google tracking codes (analytics).
+<h3 id="domain-osint">Domain OSINT</h3>
 
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python domainOsint.py example.com
+</code></pre></div></div>
 
-### Email OSINT
+<p>DataSploit will :</p>
+<ul>
+  <li>Gather links from forums</li>
+  <li>Search through Wikileaks for occurrences</li>
+  <li>Find all page links from the domain</li>
+  <li>Search through pastebin.com for occurrences</li>
+  <li>Find DNS records</li>
+  <li>Search Github for occurences</li>
+  <li>Analyze which technologies and libraries are used by the website bearing the domain name.</li>
+  <li>Search in Shodan</li>
+  <li>Find Whois information</li>
+  <li>Search domain history in Netcraft</li>
+  <li>Find subdomains</li>
+  <li>Harvest email adresses related to the domain</li>
+  <li>Check for Google tracking codes (analytics).</li>
+</ul>
 
-```bash
-python emailnOsint.py test@example.com
-```
+<h3 id="email-osint">Email OSINT</h3>
 
-DataSploit will :
-- Search SlideShare
-- Search Clearbit for biographies, companies, social media accounts, gravatar, etc.
-- Perform basic email checks with MailBoxLayer
-- Search Pastebin
-- Search Scribd Docs
-- Search Fullcontact for websites, social profiles, photos
-- Check breach status on HaveIBeenPwned
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python emailnOsint.py <span class="nb">test</span>@example.com
+</code></pre></div></div>
 
-### IP OSINT
+<p>DataSploit will :</p>
+<ul>
+  <li>Search SlideShare</li>
+  <li>Search Clearbit for biographies, companies, social media accounts, gravatar, etc.</li>
+  <li>Perform basic email checks with MailBoxLayer</li>
+  <li>Search Pastebin</li>
+  <li>Search Scribd Docs</li>
+  <li>Search Fullcontact for websites, social profiles, photos</li>
+  <li>Check breach status on HaveIBeenPwned</li>
+</ul>
 
-```bash
-python ipOsint.py 123.456.789.012
-```
+<h3 id="ip-osint">IP OSINT</h3>
 
-DataSploit will:
-- Search Shodan
-- Search the VirusTotal dataset
-- Fetch Whois information
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python ipOsint.py 123.456.789.012
+</code></pre></div></div>
 
-### Username OSINT
+<p>DataSploit will:</p>
+<ul>
+  <li>Search Shodan</li>
+  <li>Search the VirusTotal dataset</li>
+  <li>Fetch Whois information</li>
+</ul>
 
-```bash
-python usernameOsint.py username
-```
+<h3 id="username-osint">Username OSINT</h3>
 
-DataSploit will:
-- Search in GitHub repositories &amp; users
-- Search user info from Keybase
-- Check if the username exists on Tinder
-- Check if the username exists on Twitter &amp; get details and statistics from the account if it does.
-- Check if the username exists on Gitlab
-- Search for the username on Youtube
-- Search other websites &amp; services for this username
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python usernameOsint.py username
+</code></pre></div></div>
 
-## Search several targets at once
+<p>DataSploit will:</p>
+<ul>
+  <li>Search in GitHub repositories &amp; users</li>
+  <li>Search user info from Keybase</li>
+  <li>Check if the username exists on Tinder</li>
+  <li>Check if the username exists on Twitter &amp; get details and statistics from the account if it does.</li>
+  <li>Check if the username exists on Gitlab</li>
+  <li>Search for the username on Youtube</li>
+  <li>Search other websites &amp; services for this username</li>
+</ul>
 
-To run the scripts for several targets at once, create a text file and put a target on each line. For example, let's create a file name `targets.txt`:
+<h2 id="search-several-targets-at-once">Search several targets at once</h2>
 
-```
-example.com
+<p>To run the scripts for several targets at once, create a text file and put a target on each line. For example, let’s create a file name <code class="highlighter-rouge">targets.txt</code>:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>example.com
 user@example.com
 123.456.789.012
 username
-```
+</code></pre></div></div>
 
-We then run `datasploit.py` with `-f` followed by the path of our targets file:
-```bash
-python datasploit.py -f targets.txt
-```
-As explained above, DataSploit will recognize whether the target is a domain, an email, an IP or a username, and will perform searches accordingly.
+<p>We then run <code class="highlighter-rouge">datasploit.py</code> with <code class="highlighter-rouge">-f</code> followed by the path of our targets file:</p>
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python datasploit.py <span class="nt">-f</span> targets.txt
+</code></pre></div></div>
+<p>As explained above, DataSploit will recognize whether the target is a domain, an email, an IP or a username, and will perform searches accordingly.</p>
 
-## Output formats
+<h2 id="output-formats">Output formats</h2>
 
-The documentation mentions the ability to save results as a JSON or a HTML files, but these features seem unfortunately broken at the moment.
+<p>The documentation mentions the ability to save results as a JSON or a HTML files, but these features seem unfortunately broken at the moment.</p>
 
-No doubt it will prove useful for cases where the script outputs too much information to make sense of it right away. Having the results in JSON format will make exploring the results with other tools easier.
+<p>No doubt it will prove useful for cases where the script outputs too much information to make sense of it right away. Having the results in JSON format will make exploring the results with other tools easier.</p>
 
-## Debugging
+<h2 id="debugging">Debugging</h2>
 
-If you encounters problems or bugs, browse the [issues page on GitHub](https://github.com/DataSploit/datasploit/issues) and try to find your issue. If you are lucky, the fix is somewhere in the comments.
+<p>If you encounter problems or bugs, browse the <a href="https://github.com/DataSploit/datasploit/issues">issues page on GitHub</a> and try to find your issue. If you are lucky, the fix is somewhere in the comments.</p>
 
-It's also good to know that if DataSploit crashes because of a particular module, you can disable it.
+<p>It’s also good to know that if DataSploit crashes because of a particular module, you can disable it.</p>
 
-For example, I had trouble with PunkSpider when running the `domainOsint.py` script. I went to `domain/domain_checkpunkspider.py` and changed `ENABLED = True` to `False`.
-</target></FIN></DEBUT>
+<p>For example, I had trouble with PunkSpider when running the <code class="highlighter-rouge">domainOsint.py</code> script. I went to <code class="highlighter-rouge">domain/domain_checkpunkspider.py</code> and changed <code class="highlighter-rouge">ENABLED = True</code> to <code class="highlighter-rouge">False</code>.</p>
 
     
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2019-01-03T17:51:35+01:00</updated><id>http://localhost:4000/</id><title type="html">rem/lab</title><author><name>remlab</name></author><entry><title type="html">DataSploit tutorial</title><link href="http://localhost:4000/osint/2019/01/03/datasploit-tutorial.html" rel="alternate" type="text/html" title="DataSploit tutorial" /><published>2019-01-03T00:00:00+01:00</published><updated>2019-01-03T00:00:00+01:00</updated><id>http://localhost:4000/osint/2019/01/03/datasploit-tutorial</id><content type="html" xml:base="http://localhost:4000/osint/2019/01/03/datasploit-tutorial.html">&lt;p&gt;&lt;img src=&quot;./assets/datasploit.png&quot; alt=&quot;DataSploit Logo&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="https://fongandrew.github.io/feed.xml" rel="self" type="application/atom+xml" /><link href="https://fongandrew.github.io/" rel="alternate" type="text/html" /><updated>2019-01-04T13:12:20+01:00</updated><id>https://fongandrew.github.io/</id><title type="html">rem/lab</title><author><name>remlab</name></author><entry><title type="html">DataSploit tutorial</title><link href="https://fongandrew.github.io/osint/2019/01/03/datasploit-tutorial.html" rel="alternate" type="text/html" title="DataSploit tutorial" /><published>2019-01-03T00:00:00+01:00</published><updated>2019-01-03T00:00:00+01:00</updated><id>https://fongandrew.github.io/osint/2019/01/03/datasploit-tutorial</id><content type="html" xml:base="https://fongandrew.github.io/osint/2019/01/03/datasploit-tutorial.html">&lt;p&gt;&lt;img src=&quot;./assets/datasploit.png&quot; alt=&quot;DataSploit Logo&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;https://github.com/DataSploit/datasploit&quot;&gt;DataSploit&lt;/a&gt; is a collection of python scripts that automate open source intelligence searches about domain names, email addresses, IP addresses and usernames.&lt;/p&gt;
 
@@ -34,160 +34,164 @@ virtualenv &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; /usr/bin/python2.7 .
 &lt;span class=&quot;c&quot;&gt;# Install the required python libraries&lt;/span&gt;
 pip install &lt;span class=&quot;nt&quot;&gt;-r&lt;/span&gt; requirements.txt
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;DEBUT WARNING=&quot;&quot;&gt;
-At the time of this writing, DataSploit fails with the following error:
-```
-AttributeError: 'module' object has no attribute 'get_installed_distributions'
-```
-A quick look at the issues on GitHub tells us the error is known, and code has been written to fix it, but has not yet been merged. To use DataSploit, we need to overwrite the contents of `dep_check.py` with this [new version](https://github.com/DataSploit/datasploit/blob/e0408a0076f4edb608285273117d5328797b07d9/dep_check.py).
-&lt;FIN WARNING=&quot;&quot;&gt;
 
-## Configuration
+&lt;p&gt;At the time of this writing, DataSploit fails with the following error:&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;AttributeError: 'module' object has no attribute 'get_installed_distributions'
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit to connect to the services and perform searches on your behalf.
+&lt;p&gt;A quick look at the issues on GitHub tells us the error is known, and code has been written to fix it, but has not yet been merged. To use DataSploit, we need to overwrite the contents of &lt;code class=&quot;highlighter-rouge&quot;&gt;dep_check.py&lt;/code&gt; with this &lt;a href=&quot;https://github.com/DataSploit/datasploit/blob/e0408a0076f4edb608285273117d5328797b07d9/dep_check.py&quot;&gt;new version&lt;/a&gt;.&lt;/p&gt;
 
-The [DataSploit documentation](https://datasloit.info/apiGeneration/) will guide through getting the required API credentials for:
-- [Shodan](https://www.shodan.io/): IoT search engine, IP address search
-- [Censys](https://censys.io/): servers &amp;amp; devices search
-- [ClearBit](https://clearbit.com/): email &amp;amp; domain intelligence
-- [EmailHunter](https://hunter.io/):  email search
-- [Fullcontact](https://www.fullcontact.com/): identity resolution
-- [Google Custom Search Engine](https://www.google.com/cse/): to search [pastebin.com](https://pastebin.com/)
-- [SpyOnWeb](https://spyonweb.com/): Domain names &amp;amp; analytics ID intelligence
-- [ZoomEye](https://www.zoomeye.org/): seems down
+&lt;h2 id=&quot;configuration&quot;&gt;Configuration&lt;/h2&gt;
 
-For each service, you will need to create an account, and sometimes pass a SMS verification.
-Note than unless you opt for paid plans, there will be usage limits for each service.
+&lt;p&gt;To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit to connect to the services and perform searches on your behalf.&lt;/p&gt;
 
-There are also another number of API credentials you can feed DataSploit, depending on your needs:
-- [GitHub](https://github.com/): find users &amp;amp; repositories, or domain names in code &amp;amp; documentation.
-- [BuiltWith](https://builtwith.com/): find what web technologies are used on a website.
-- Facebook
-- Flickr
-- [IP Info DB](https://www.ipinfodb.com/): IP address geolocation lookup
-- LinkedIn
-- Reddit
-- Twitter
-- [Json Whois](https://jsonwhois.com/): whois &amp;amp; social data
-- Instagram
-- [MailBoxLayer](https://mailboxlayer.com/): email Validation &amp;amp; Verification
-- [VirusTotal](https://www.virustotal.com/): scan URLs for malware
-- [urlscan.io](https://urlscan.io/): scan a website and analyze the resources it requests and the domains it contacts.
+&lt;p&gt;The &lt;a href=&quot;https://datasloit.info/apiGeneration/&quot;&gt;DataSploit documentation&lt;/a&gt; will guide through getting the required API credentials for:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.shodan.io/&quot;&gt;Shodan&lt;/a&gt;: IoT search engine, IP address search&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://censys.io/&quot;&gt;Censys&lt;/a&gt;: servers &amp;amp; devices search&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://clearbit.com/&quot;&gt;ClearBit&lt;/a&gt;: email &amp;amp; domain intelligence&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://hunter.io/&quot;&gt;EmailHunter&lt;/a&gt;:  email search&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.fullcontact.com/&quot;&gt;Fullcontact&lt;/a&gt;: identity resolution&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.google.com/cse/&quot;&gt;Google Custom Search Engine&lt;/a&gt;: to search &lt;a href=&quot;https://pastebin.com/&quot;&gt;pastebin.com&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://spyonweb.com/&quot;&gt;SpyOnWeb&lt;/a&gt;: Domain names &amp;amp; analytics ID intelligence&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.zoomeye.org/&quot;&gt;ZoomEye&lt;/a&gt;: seems down&lt;/li&gt;
+&lt;/ul&gt;
 
-Again, you will need to register to these services to get an API key. Procedures vary, but if you are struggling there is most probably a walkthrough or a thread to help you somewhere on the web.
+&lt;p&gt;For each service, you will need to create an account, and sometimes pass a SMS verification.
+Note than unless you opt for paid plans, there will be usage limits for each service.&lt;/p&gt;
 
-## Usage
+&lt;p&gt;There are also another number of API credentials you can feed DataSploit, depending on your needs:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://github.com/&quot;&gt;GitHub&lt;/a&gt;: find users &amp;amp; repositories, or domain names in code &amp;amp; documentation.&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://builtwith.com/&quot;&gt;BuiltWith&lt;/a&gt;: find what web technologies are used on a website.&lt;/li&gt;
+  &lt;li&gt;Facebook&lt;/li&gt;
+  &lt;li&gt;Flickr&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.ipinfodb.com/&quot;&gt;IP Info DB&lt;/a&gt;: IP address geolocation lookup&lt;/li&gt;
+  &lt;li&gt;LinkedIn&lt;/li&gt;
+  &lt;li&gt;Reddit&lt;/li&gt;
+  &lt;li&gt;Twitter&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://jsonwhois.com/&quot;&gt;Json Whois&lt;/a&gt;: whois &amp;amp; social data&lt;/li&gt;
+  &lt;li&gt;Instagram&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://mailboxlayer.com/&quot;&gt;MailBoxLayer&lt;/a&gt;: email Validation &amp;amp; Verification&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.virustotal.com/&quot;&gt;VirusTotal&lt;/a&gt;: scan URLs for malware&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://urlscan.io/&quot;&gt;urlscan.io&lt;/a&gt;: scan a website and analyze the resources it requests and the domains it contacts.&lt;/li&gt;
+&lt;/ul&gt;
 
-DataSploit has four main python scripts:
-- `domainOsint.py`
-- `emailOsint.py`
-- `ipOsint.py`
-- `usernameOsint.py`
+&lt;p&gt;Again, you will need to register to these services to get an API key. Procedures vary, but if you are struggling there is most probably a walkthrough or a thread to help you somewhere on the web.&lt;/p&gt;
 
-Each script corresponds to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.
+&lt;h2 id=&quot;usage&quot;&gt;Usage&lt;/h2&gt;
 
-You can either run the scripts above separately, or let datasploit autodetect what you feed it:
+&lt;p&gt;DataSploit has four main python scripts:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;domainOsint.py&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;emailOsint.py&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;ipOsint.py&lt;/code&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;highlighter-rouge&quot;&gt;usernameOsint.py&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-```
-python datasploit.py -i &lt;target&gt;
-```
+&lt;p&gt;Each script corresponds to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.&lt;/p&gt;
 
-The following notes describe how to use each script, and what information they will yield.
+&lt;p&gt;You can either run the scripts above separately, or let datasploit autodetect what you feed it:&lt;/p&gt;
 
-### Domain OSINT
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python datasploit.py -i target
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-```bash
-python domainOsint.py example.com
-```
+&lt;p&gt;The following notes describe how to use each script, and what information they will yield.&lt;/p&gt;
 
-DataSploit will :
-- Gather links from forums
-- Search through Wikileaks for occurrences
-- Find all page links from the domain
-- Search through pastebin.com for occurrences
-- Find DNS records
-- Search Github for occurences
-- Analyze which technologies and libraries are used by the website bearing the domain name.
-- Search in Shodan
-- Find Whois information
-- Search domain history in Netcraft
-- Find subdomains
-- Harvest email adresses related to the domain
-- Check for Google tracking codes (analytics).
+&lt;h3 id=&quot;domain-osint&quot;&gt;Domain OSINT&lt;/h3&gt;
 
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python domainOsint.py example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### Email OSINT
+&lt;p&gt;DataSploit will :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Gather links from forums&lt;/li&gt;
+  &lt;li&gt;Search through Wikileaks for occurrences&lt;/li&gt;
+  &lt;li&gt;Find all page links from the domain&lt;/li&gt;
+  &lt;li&gt;Search through pastebin.com for occurrences&lt;/li&gt;
+  &lt;li&gt;Find DNS records&lt;/li&gt;
+  &lt;li&gt;Search Github for occurences&lt;/li&gt;
+  &lt;li&gt;Analyze which technologies and libraries are used by the website bearing the domain name.&lt;/li&gt;
+  &lt;li&gt;Search in Shodan&lt;/li&gt;
+  &lt;li&gt;Find Whois information&lt;/li&gt;
+  &lt;li&gt;Search domain history in Netcraft&lt;/li&gt;
+  &lt;li&gt;Find subdomains&lt;/li&gt;
+  &lt;li&gt;Harvest email adresses related to the domain&lt;/li&gt;
+  &lt;li&gt;Check for Google tracking codes (analytics).&lt;/li&gt;
+&lt;/ul&gt;
 
-```bash
-python emailnOsint.py test@example.com
-```
+&lt;h3 id=&quot;email-osint&quot;&gt;Email OSINT&lt;/h3&gt;
 
-DataSploit will :
-- Search SlideShare
-- Search Clearbit for biographies, companies, social media accounts, gravatar, etc.
-- Perform basic email checks with MailBoxLayer
-- Search Pastebin
-- Search Scribd Docs
-- Search Fullcontact for websites, social profiles, photos
-- Check breach status on HaveIBeenPwned
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python emailnOsint.py &lt;span class=&quot;nb&quot;&gt;test&lt;/span&gt;@example.com
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### IP OSINT
+&lt;p&gt;DataSploit will :&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Search SlideShare&lt;/li&gt;
+  &lt;li&gt;Search Clearbit for biographies, companies, social media accounts, gravatar, etc.&lt;/li&gt;
+  &lt;li&gt;Perform basic email checks with MailBoxLayer&lt;/li&gt;
+  &lt;li&gt;Search Pastebin&lt;/li&gt;
+  &lt;li&gt;Search Scribd Docs&lt;/li&gt;
+  &lt;li&gt;Search Fullcontact for websites, social profiles, photos&lt;/li&gt;
+  &lt;li&gt;Check breach status on HaveIBeenPwned&lt;/li&gt;
+&lt;/ul&gt;
 
-```bash
-python ipOsint.py 123.456.789.012
-```
+&lt;h3 id=&quot;ip-osint&quot;&gt;IP OSINT&lt;/h3&gt;
 
-DataSploit will:
-- Search Shodan
-- Search the VirusTotal dataset
-- Fetch Whois information
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python ipOsint.py 123.456.789.012
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### Username OSINT
+&lt;p&gt;DataSploit will:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Search Shodan&lt;/li&gt;
+  &lt;li&gt;Search the VirusTotal dataset&lt;/li&gt;
+  &lt;li&gt;Fetch Whois information&lt;/li&gt;
+&lt;/ul&gt;
 
-```bash
-python usernameOsint.py username
-```
+&lt;h3 id=&quot;username-osint&quot;&gt;Username OSINT&lt;/h3&gt;
 
-DataSploit will:
-- Search in GitHub repositories &amp;amp; users
-- Search user info from Keybase
-- Check if the username exists on Tinder
-- Check if the username exists on Twitter &amp;amp; get details and statistics from the account if it does.
-- Check if the username exists on Gitlab
-- Search for the username on Youtube
-- Search other websites &amp;amp; services for this username
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python usernameOsint.py username
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-## Search several targets at once
+&lt;p&gt;DataSploit will:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Search in GitHub repositories &amp;amp; users&lt;/li&gt;
+  &lt;li&gt;Search user info from Keybase&lt;/li&gt;
+  &lt;li&gt;Check if the username exists on Tinder&lt;/li&gt;
+  &lt;li&gt;Check if the username exists on Twitter &amp;amp; get details and statistics from the account if it does.&lt;/li&gt;
+  &lt;li&gt;Check if the username exists on Gitlab&lt;/li&gt;
+  &lt;li&gt;Search for the username on Youtube&lt;/li&gt;
+  &lt;li&gt;Search other websites &amp;amp; services for this username&lt;/li&gt;
+&lt;/ul&gt;
 
-To run the scripts for several targets at once, create a text file and put a target on each line. For example, let's create a file name `targets.txt`:
+&lt;h2 id=&quot;search-several-targets-at-once&quot;&gt;Search several targets at once&lt;/h2&gt;
 
-```
-example.com
+&lt;p&gt;To run the scripts for several targets at once, create a text file and put a target on each line. For example, let’s create a file name &lt;code class=&quot;highlighter-rouge&quot;&gt;targets.txt&lt;/code&gt;:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;example.com
 user@example.com
 123.456.789.012
 username
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-We then run `datasploit.py` with `-f` followed by the path of our targets file:
-```bash
-python datasploit.py -f targets.txt
-```
-As explained above, DataSploit will recognize whether the target is a domain, an email, an IP or a username, and will perform searches accordingly.
+&lt;p&gt;We then run &lt;code class=&quot;highlighter-rouge&quot;&gt;datasploit.py&lt;/code&gt; with &lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt; followed by the path of our targets file:&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python datasploit.py &lt;span class=&quot;nt&quot;&gt;-f&lt;/span&gt; targets.txt
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;As explained above, DataSploit will recognize whether the target is a domain, an email, an IP or a username, and will perform searches accordingly.&lt;/p&gt;
 
-## Output formats
+&lt;h2 id=&quot;output-formats&quot;&gt;Output formats&lt;/h2&gt;
 
-The documentation mentions the ability to save results as a JSON or a HTML files, but these features seem unfortunately broken at the moment.
+&lt;p&gt;The documentation mentions the ability to save results as a JSON or a HTML files, but these features seem unfortunately broken at the moment.&lt;/p&gt;
 
-No doubt it will prove useful for cases where the script outputs too much information to make sense of it right away. Having the results in JSON format will make exploring the results with other tools easier.
+&lt;p&gt;No doubt it will prove useful for cases where the script outputs too much information to make sense of it right away. Having the results in JSON format will make exploring the results with other tools easier.&lt;/p&gt;
 
-## Debugging
+&lt;h2 id=&quot;debugging&quot;&gt;Debugging&lt;/h2&gt;
 
-If you encounters problems or bugs, browse the [issues page on GitHub](https://github.com/DataSploit/datasploit/issues) and try to find your issue. If you are lucky, the fix is somewhere in the comments.
+&lt;p&gt;If you encounter problems or bugs, browse the &lt;a href=&quot;https://github.com/DataSploit/datasploit/issues&quot;&gt;issues page on GitHub&lt;/a&gt; and try to find your issue. If you are lucky, the fix is somewhere in the comments.&lt;/p&gt;
 
-It's also good to know that if DataSploit crashes because of a particular module, you can disable it.
+&lt;p&gt;It’s also good to know that if DataSploit crashes because of a particular module, you can disable it.&lt;/p&gt;
 
-For example, I had trouble with PunkSpider when running the `domainOsint.py` script. I went to `domain/domain_checkpunkspider.py` and changed `ENABLED = True` to `False`.
-&lt;/target&gt;&lt;/FIN&gt;&lt;/DEBUT&gt;</content><author><name>remlab</name></author><category term="datasploit" /><category term="email" /><category term="social" /><category term="domain" /><category term="IP" /><category term="username" /><category term="python" /><category term="intelligence" /><category term="automation" /><summary type="html">DataSploit is a collection of python scripts that automate open source intelligence searches about domain names, email addresses, IP addresses and usernames. To use DataSploit, you’ll need: Python 2.7 a basic understanding of the command line. In addition, knowing your way around python versions, dependencies and virtual environments will definitely help should the script throw errors. Why is DataSploit useful? DataSploit searches several services for many pieces of information. This speeds up the research process, as you don’t have to perform searches on each service separately. DataSploit also allows to search several targets in one go.</summary></entry><entry><title type="html">theHarvester: find email addresses from a domain</title><link href="http://localhost:4000/osint/2019/01/02/theHarvester-tutorial.html" rel="alternate" type="text/html" title="theHarvester: find email addresses from a domain" /><published>2019-01-02T00:00:00+01:00</published><updated>2019-01-02T00:00:00+01:00</updated><id>http://localhost:4000/osint/2019/01/02/theHarvester-tutorial</id><content type="html" xml:base="http://localhost:4000/osint/2019/01/02/theHarvester-tutorial.html">&lt;p&gt;&lt;a href=&quot;https://github.com/laramies/theHarvester&quot;&gt;theHarvester&lt;/a&gt; is a Python script that uses several search engines to find emails matching a certain domain name.&lt;/p&gt;
+&lt;p&gt;For example, I had trouble with PunkSpider when running the &lt;code class=&quot;highlighter-rouge&quot;&gt;domainOsint.py&lt;/code&gt; script. I went to &lt;code class=&quot;highlighter-rouge&quot;&gt;domain/domain_checkpunkspider.py&lt;/code&gt; and changed &lt;code class=&quot;highlighter-rouge&quot;&gt;ENABLED = True&lt;/code&gt; to &lt;code class=&quot;highlighter-rouge&quot;&gt;False&lt;/code&gt;.&lt;/p&gt;</content><author><name>remlab</name></author><category term="datasploit" /><category term="email" /><category term="social" /><category term="domain" /><category term="IP" /><category term="username" /><category term="python" /><category term="intelligence" /><category term="automation" /><summary type="html">DataSploit is a collection of python scripts that automate open source intelligence searches about domain names, email addresses, IP addresses and usernames. To use DataSploit, you’ll need: Python 2.7 a basic understanding of the command line. In addition, knowing your way around python versions, dependencies and virtual environments will definitely help should the script throw errors. Why is DataSploit useful? DataSploit searches several services for many pieces of information. This speeds up the research process, as you don’t have to perform searches on each service separately. DataSploit also allows to search several targets in one go.</summary></entry><entry><title type="html">theHarvester: find email addresses from a domain</title><link href="https://fongandrew.github.io/osint/2019/01/02/theHarvester-tutorial.html" rel="alternate" type="text/html" title="theHarvester: find email addresses from a domain" /><published>2019-01-02T00:00:00+01:00</published><updated>2019-01-02T00:00:00+01:00</updated><id>https://fongandrew.github.io/osint/2019/01/02/theHarvester-tutorial</id><content type="html" xml:base="https://fongandrew.github.io/osint/2019/01/02/theHarvester-tutorial.html">&lt;p&gt;&lt;a href=&quot;https://github.com/laramies/theHarvester&quot;&gt;theHarvester&lt;/a&gt; is a Python script that uses several search engines to find emails matching a certain domain name.&lt;/p&gt;
 
 &lt;p&gt;This has several use cases:&lt;/p&gt;
 &lt;ul&gt;
@@ -276,7 +280,7 @@ Usage: theharvester options
 &lt;p&gt;theHarvester can also save the results to both an html and and xml file, with the &lt;code class=&quot;highlighter-rouge&quot;&gt;-f&lt;/code&gt; argument:&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;python theHarvester.py -d microsoft.com -l 5000 -b all -f microsoft.html
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;Note that the above command will create both &lt;code class=&quot;highlighter-rouge&quot;&gt;microsoft.html&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;microsoft.xml&lt;/code&gt;.&lt;/p&gt;</content><author><name>remlab</name></author><category term="theHarvester" /><category term="email" /><category term="domain" /><summary type="html">theHarvester is a Python script that uses several search engines to find emails matching a certain domain name. This has several use cases: find emails of a company’s employees, if you know the company’s website. find the email of someone if you know the website of its company or its personal website. find the format of email addresses of a company. A lot of companies usually use a common format for its employees’ emails, such as surname.name@examplecompany.com. If this is the case, you can easily infer the email address of employees from their names.</summary></entry><entry><title type="html">pip, virtualenv and pipenv cheatsheet</title><link href="http://localhost:4000/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html" rel="alternate" type="text/html" title="pip, virtualenv and pipenv cheatsheet" /><published>2018-12-30T00:00:00+01:00</published><updated>2018-12-30T00:00:00+01:00</updated><id>http://localhost:4000/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet</id><content type="html" xml:base="http://localhost:4000/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">&lt;p&gt;A collection of useful commands to handle python virtual environments and packages with pip, virtualenv, and pipenv.&lt;/p&gt;
+&lt;p&gt;Note that the above command will create both &lt;code class=&quot;highlighter-rouge&quot;&gt;microsoft.html&lt;/code&gt; and &lt;code class=&quot;highlighter-rouge&quot;&gt;microsoft.xml&lt;/code&gt;.&lt;/p&gt;</content><author><name>remlab</name></author><category term="theHarvester" /><category term="email" /><category term="domain" /><summary type="html">theHarvester is a Python script that uses several search engines to find emails matching a certain domain name. This has several use cases: find emails of a company’s employees, if you know the company’s website. find the email of someone if you know the website of its company or its personal website. find the format of email addresses of a company. A lot of companies usually use a common format for its employees’ emails, such as surname.name@examplecompany.com. If this is the case, you can easily infer the email address of employees from their names.</summary></entry><entry><title type="html">pip, virtualenv and pipenv cheatsheet</title><link href="https://fongandrew.github.io/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html" rel="alternate" type="text/html" title="pip, virtualenv and pipenv cheatsheet" /><published>2018-12-30T00:00:00+01:00</published><updated>2018-12-30T00:00:00+01:00</updated><id>https://fongandrew.github.io/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet</id><content type="html" xml:base="https://fongandrew.github.io/python/2018/12/30/virtualenv-pip-pipenv-cheatsheet.html">&lt;p&gt;A collection of useful commands to handle python virtual environments and packages with pip, virtualenv, and pipenv.&lt;/p&gt;
 
 &lt;!--more--&gt;
 
@@ -463,7 +467,7 @@ pipenv update &amp;lt;package&amp;gt;
   &lt;li&gt;&lt;a href=&quot;https://pip.pypa.io/en/stable/&quot;&gt;Pip documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://virtualenv.pypa.io/en/latest/&quot;&gt;Virtualenv documentation&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://pipenv.readthedocs.io/en/latest/&quot;&gt;Pipenv documentation&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name>remlab</name></author><category term="pip" /><category term="virtualenv" /><category term="pipenv" /><category term="cheatsheet" /><summary type="html">A collection of useful commands to handle python virtual environments and packages with pip, virtualenv, and pipenv.</summary></entry><entry><title type="html">PDF text extraction</title><link href="http://localhost:4000/python/osint/2018/08/09/PDF-text-extraction.html" rel="alternate" type="text/html" title="PDF text extraction" /><published>2018-08-09T00:00:00+02:00</published><updated>2018-08-09T00:00:00+02:00</updated><id>http://localhost:4000/python/osint/2018/08/09/PDF-text-extraction</id><content type="html" xml:base="http://localhost:4000/python/osint/2018/08/09/PDF-text-extraction.html">&lt;p&gt;Several tools to extract text from a PDF.&lt;/p&gt;
+&lt;/ul&gt;</content><author><name>remlab</name></author><category term="pip" /><category term="virtualenv" /><category term="pipenv" /><category term="cheatsheet" /><summary type="html">A collection of useful commands to handle python virtual environments and packages with pip, virtualenv, and pipenv.</summary></entry><entry><title type="html">PDF text extraction</title><link href="https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction.html" rel="alternate" type="text/html" title="PDF text extraction" /><published>2018-08-09T00:00:00+02:00</published><updated>2018-08-09T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction</id><content type="html" xml:base="https://fongandrew.github.io/python/osint/2018/08/09/PDF-text-extraction.html">&lt;p&gt;Several tools to extract text from a PDF.&lt;/p&gt;
 
 &lt;h2 id=&quot;pypdf2&quot;&gt;PyPDF2&lt;/h2&gt;
 
@@ -524,7 +528,7 @@ pipenv update &amp;lt;package&amp;gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;pdftotext &lt;span class=&quot;nt&quot;&gt;-layout&lt;/span&gt; file.pdf output.txt&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
 
-&lt;p&gt;See &lt;a href=&quot;https://www.xpdfreader.com&quot;&gt;xpdf official website&lt;/a&gt;, &lt;a href=&quot;https://www.xpdfreader.com/pdftotext-man.html&quot;&gt;pdftotext manual&lt;/a&gt;&lt;/p&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="OSINT" /><category term="PDF" /><category term="text extraction" /><category term="memos" /><summary type="html">Several tools to extract text from a PDF. PyPDF2 Install the module with pip. pip3 install PyPDF2 In Python: &amp;gt;&amp;gt;&amp;gt; import PyPDF2 &amp;gt;&amp;gt;&amp;gt; pdfFileObj = open('file.pdf', 'rb') &amp;gt;&amp;gt;&amp;gt; pdfReaderpageObj.extractText() = PyPDF2.PdfFileReader(pdfFileObj) &amp;gt;&amp;gt;&amp;gt; pageObj = pdfReader.getPage(0) &amp;gt;&amp;gt;&amp;gt; textPage = pageObj.extractText() See PyPDF2 on Github, docs Tika Install with pip pip3 install tika Make sure java is installed: sudo apt update sudo apt install openjdk-8-jdk In Python: &amp;gt;&amp;gt;&amp;gt; from tika import parser &amp;gt;&amp;gt;&amp;gt; parsedPDF = parser.from_file(&quot;file.pdf&quot;) &amp;gt;&amp;gt;&amp;gt; pdfText = parsedPDF[&quot;content&quot;] See tika-python on Github PDFMiner Install with pip (Python 2): pip install PDFMiner In bash: pdf2txt.py -o output.txt file.pdf See PDFMiner on Github xpdf / pdftotext Install with apt: In bash: pdftotext file.pdf output.txt or pdftotext -layout file.pdf output.txt See xpdf official website, pdftotext manual</summary></entry><entry><title type="html">Getting up-to-date data on French MPs</title><link href="http://localhost:4000/python/osint/2018/08/03/Getting-data-on-French-MPs.html" rel="alternate" type="text/html" title="Getting up-to-date data on French MPs" /><published>2018-08-03T00:00:00+02:00</published><updated>2018-08-03T00:00:00+02:00</updated><id>http://localhost:4000/python/osint/2018/08/03/Getting-data-on-French-MPs</id><content type="html" xml:base="http://localhost:4000/python/osint/2018/08/03/Getting-data-on-French-MPs.html">&lt;p&gt;Say we need to quickly get up-to-date data on French MPs for a project.&lt;/p&gt;
+&lt;p&gt;See &lt;a href=&quot;https://www.xpdfreader.com&quot;&gt;xpdf official website&lt;/a&gt;, &lt;a href=&quot;https://www.xpdfreader.com/pdftotext-man.html&quot;&gt;pdftotext manual&lt;/a&gt;&lt;/p&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="OSINT" /><category term="PDF" /><category term="text extraction" /><category term="memos" /><summary type="html">Several tools to extract text from a PDF. PyPDF2 Install the module with pip. pip3 install PyPDF2 In Python: &amp;gt;&amp;gt;&amp;gt; import PyPDF2 &amp;gt;&amp;gt;&amp;gt; pdfFileObj = open('file.pdf', 'rb') &amp;gt;&amp;gt;&amp;gt; pdfReaderpageObj.extractText() = PyPDF2.PdfFileReader(pdfFileObj) &amp;gt;&amp;gt;&amp;gt; pageObj = pdfReader.getPage(0) &amp;gt;&amp;gt;&amp;gt; textPage = pageObj.extractText() See PyPDF2 on Github, docs Tika Install with pip pip3 install tika Make sure java is installed: sudo apt update sudo apt install openjdk-8-jdk In Python: &amp;gt;&amp;gt;&amp;gt; from tika import parser &amp;gt;&amp;gt;&amp;gt; parsedPDF = parser.from_file(&quot;file.pdf&quot;) &amp;gt;&amp;gt;&amp;gt; pdfText = parsedPDF[&quot;content&quot;] See tika-python on Github PDFMiner Install with pip (Python 2): pip install PDFMiner In bash: pdf2txt.py -o output.txt file.pdf See PDFMiner on Github xpdf / pdftotext Install with apt: In bash: pdftotext file.pdf output.txt or pdftotext -layout file.pdf output.txt See xpdf official website, pdftotext manual</summary></entry><entry><title type="html">Getting up-to-date data on French MPs</title><link href="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html" rel="alternate" type="text/html" title="Getting up-to-date data on French MPs" /><published>2018-08-03T00:00:00+02:00</published><updated>2018-08-03T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs</id><content type="html" xml:base="https://fongandrew.github.io/python/osint/2018/08/03/Getting-data-on-French-MPs.html">&lt;p&gt;Say we need to quickly get up-to-date data on French MPs for a project.&lt;/p&gt;
 
 &lt;p&gt;Everything we need is on the National Assembly or on the Senate websites, but they provide no structured way to get the data.
 Fortunately, Regards Citoyens provides up-to-date data on both French Parliament houses in multiple formats, through several websites:&lt;/p&gt;
@@ -582,7 +586,7 @@ Fortunately, Regards Citoyens provides up-to-date data on both French Parliament
   	    &lt;span class=&quot;n&quot;&gt;newEmail&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;dic&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'email'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
   		  &lt;span class=&quot;n&quot;&gt;allEmails&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;append&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;newEmail&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
 
-&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;allEmails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="OSINT" /><category term="France" /><category term="Parliament" /><category term="API" /><summary type="html">Say we need to quickly get up-to-date data on French MPs for a project. Everything we need is on the National Assembly or on the Senate websites, but they provide no structured way to get the data. Fortunately, Regards Citoyens provides up-to-date data on both French Parliament houses in multiple formats, through several websites: nosdeputes.fr: info on lower-house MPs nosenateurs.fr: info on upper-house MPs ParlAPI: API access to data on both houses Info on current lower-house MPs For example, if we need information on all lower-house MPs currently in office, we get the corresponding JSON data from nosdeputes.fr : import requests import json url ='https://www.nosdeputes.fr/deputes/enmandat/json' response = requests.get(url) response.raise_for_status() jsonData = json.loads(response.text) We can then iterate over the 577 lower-house MPs to get the info we want. for num in range(0, 576): d = jsonData['deputes'][num]['depute'] # easier to read # rest of the code Inside this for loop, we can now access data on MPs to store it in the format we want (CSV or Excel table, python dictionary, etc.). For example, we access the surname of the MP with d['nom']. Have a look at the JSON data in your web browser to find all the available attributes. Some attributes have multiple values, such as email addresses: many MPs have more than one registered. We can store them in a list, like so: mails = [] for dic in d['emails']: newEmail = dic['email'] mails.append(newEmail) Example: fetching all email addresses Putting all this together, we can write a little script that outputs all the email addresses of current lower-house MPs: import requests import json url ='https://www.nosdeputes.fr/deputes/enmandat/json' response = requests.get(url) response.raise_for_status() jsonData = json.loads(response.text) allEmails = [] # We'll store everything in here for num in range(0, 576): d = jsonData['deputes'][num]['depute'] for dic in d['emails']: newEmail = dic['email'] allEmails.append(newEmail) print('\n'.join(allEmails))</summary></entry><entry><title type="html">Simple vCard writer (+CSV conversion)</title><link href="http://localhost:4000/python/2018/07/31/Python-VCF-contacts-writer.html" rel="alternate" type="text/html" title="Simple vCard writer (+CSV conversion)" /><published>2018-07-31T00:00:00+02:00</published><updated>2018-07-31T00:00:00+02:00</updated><id>http://localhost:4000/python/2018/07/31/Python-VCF-contacts-writer</id><content type="html" xml:base="http://localhost:4000/python/2018/07/31/Python-VCF-contacts-writer.html">&lt;p&gt;Lately I needed to convert hundreds of contacts from CSV to &lt;a href=&quot;https://en.wikipedia.org/wiki/VCard&quot;&gt;vCard&lt;/a&gt; format. Thought it would make a nice python exercise.&lt;/p&gt;
+&lt;span class=&quot;k&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;join&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;allEmails&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="OSINT" /><category term="France" /><category term="Parliament" /><category term="API" /><summary type="html">Say we need to quickly get up-to-date data on French MPs for a project. Everything we need is on the National Assembly or on the Senate websites, but they provide no structured way to get the data. Fortunately, Regards Citoyens provides up-to-date data on both French Parliament houses in multiple formats, through several websites: nosdeputes.fr: info on lower-house MPs nosenateurs.fr: info on upper-house MPs ParlAPI: API access to data on both houses Info on current lower-house MPs For example, if we need information on all lower-house MPs currently in office, we get the corresponding JSON data from nosdeputes.fr : import requests import json url ='https://www.nosdeputes.fr/deputes/enmandat/json' response = requests.get(url) response.raise_for_status() jsonData = json.loads(response.text) We can then iterate over the 577 lower-house MPs to get the info we want. for num in range(0, 576): d = jsonData['deputes'][num]['depute'] # easier to read # rest of the code Inside this for loop, we can now access data on MPs to store it in the format we want (CSV or Excel table, python dictionary, etc.). For example, we access the surname of the MP with d['nom']. Have a look at the JSON data in your web browser to find all the available attributes. Some attributes have multiple values, such as email addresses: many MPs have more than one registered. We can store them in a list, like so: mails = [] for dic in d['emails']: newEmail = dic['email'] mails.append(newEmail) Example: fetching all email addresses Putting all this together, we can write a little script that outputs all the email addresses of current lower-house MPs: import requests import json url ='https://www.nosdeputes.fr/deputes/enmandat/json' response = requests.get(url) response.raise_for_status() jsonData = json.loads(response.text) allEmails = [] # We'll store everything in here for num in range(0, 576): d = jsonData['deputes'][num]['depute'] for dic in d['emails']: newEmail = dic['email'] allEmails.append(newEmail) print('\n'.join(allEmails))</summary></entry><entry><title type="html">Simple vCard writer (+CSV conversion)</title><link href="https://fongandrew.github.io/python/2018/07/31/Python-VCF-contacts-writer.html" rel="alternate" type="text/html" title="Simple vCard writer (+CSV conversion)" /><published>2018-07-31T00:00:00+02:00</published><updated>2018-07-31T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/2018/07/31/Python-VCF-contacts-writer</id><content type="html" xml:base="https://fongandrew.github.io/python/2018/07/31/Python-VCF-contacts-writer.html">&lt;p&gt;Lately I needed to convert hundreds of contacts from CSV to &lt;a href=&quot;https://en.wikipedia.org/wiki/VCard&quot;&gt;vCard&lt;/a&gt; format. Thought it would make a nice python exercise.&lt;/p&gt;
 
 &lt;p&gt;Here is function to generate a (very) simple vCard-formatted string from contact information.&lt;/p&gt;
 
@@ -718,7 +722,7 @@ EMAIL:bob@example.com
 TEL:0987654321
 CATEGORIES:Work
 END:VCARD
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="VCF" /><category term="vCard" /><category term="CSV" /><summary type="html">Lately I needed to convert hundreds of contacts from CSV to vCard format. Thought it would make a nice python exercise. Here is function to generate a (very) simple vCard-formatted string from contact information. def vcfWriter(name, email, phone, category): vcfLines = [] vcfLines.append('BEGIN:VCARD') vcfLines.append('VERSION:4.0') vcfLines.append('FN:%s' % name) vcfLines.append('EMAIL:%s' % email) vcfLines.append('TEL:%s' % phone) vcfLines.append('CATEGORIES:%s' % category) vcfLines.append('END:VCARD') vcfString = '\n'.join(vcfLines) + '\n' return vcfString It uses only a few vCard properties, but more can be added easily. CSV conversion Assuming contacts.csv looks like this: Name Email Phone Category Alice alice@example.com 0123456789 Friends Bob bob@example.com 0987654321 Work ... ... ... ... To individual files We can batch-convert contacts to individual .vcf files: import csv def vcfWriter(name, email, phone, category): # ... # Get data from the CSV file csvFile = open('contacts.csv') csvReader = csv.reader(csvFile) csvData = list(csvReader) # Iterate over the lines of the CSV table for row in range(len(csvData)): if row == 0: continue # Skip the first row (headers) else: # Get contact data from current row # (Tweak the column indexes to fit your data) name = csvData[row][0] email = csvData[row][1] phone = csvData[row][2] category = csvData[row][3] # Write the corresponding vCard string to a .vcf file: outputFile = open(name + '.vcf', 'w') outputFile.write(vcfWriter(name, email,phone, category)) outputFile.close() # don't forget to close the file csvFile.close() To a single file Or we can write all contacts to a single, easier to import .vcf file import csv def vcfWriter(name, email, phone, category): # see above # Get data from the CSV file csvFile = open('contacts.csv') csvReader = csv.reader(csvFile) csvData = list(csvReader) # Create the ouput file outputFile = open('contacts.vcf', 'w') # Iterate over the lines of the CSV table for row in range(len(csvData)): if row == 0: continue # Skip the first row (headers) else: # Get contact data from current row name = csvData[row][0] email = csvData[row][1] phone = csvData[row][2] category = csvData[row][3] # Write the corresponding vCard string to the output file: ouputFile.write(vcfWriter(name, email,phone, category)) # Don't forget to close both files ouputFile.close() csvFile.close() Output (single file): BEGIN:VCARD VERSION:4.0 FN:Alice EMAIL:alice@example.com TEL:0123456789 CATEGORIES:Friends END:VCARD BEGIN:VCARD VERSION:4.0 FN:Bob EMAIL:bob@example.com TEL:0987654321 CATEGORIES:Work END:VCARD</summary></entry><entry><title type="html">PostgreSQL Basics</title><link href="http://localhost:4000/python/2018/07/30/PostgreSQL-Basics.html" rel="alternate" type="text/html" title="PostgreSQL Basics" /><published>2018-07-30T00:00:00+02:00</published><updated>2018-07-30T00:00:00+02:00</updated><id>http://localhost:4000/python/2018/07/30/PostgreSQL-Basics</id><content type="html" xml:base="http://localhost:4000/python/2018/07/30/PostgreSQL-Basics.html">&lt;p&gt;Install steps and basic functions to operate a PostgreSQL database in Python 3.&lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="VCF" /><category term="vCard" /><category term="CSV" /><summary type="html">Lately I needed to convert hundreds of contacts from CSV to vCard format. Thought it would make a nice python exercise. Here is function to generate a (very) simple vCard-formatted string from contact information. def vcfWriter(name, email, phone, category): vcfLines = [] vcfLines.append('BEGIN:VCARD') vcfLines.append('VERSION:4.0') vcfLines.append('FN:%s' % name) vcfLines.append('EMAIL:%s' % email) vcfLines.append('TEL:%s' % phone) vcfLines.append('CATEGORIES:%s' % category) vcfLines.append('END:VCARD') vcfString = '\n'.join(vcfLines) + '\n' return vcfString It uses only a few vCard properties, but more can be added easily. CSV conversion Assuming contacts.csv looks like this: Name Email Phone Category Alice alice@example.com 0123456789 Friends Bob bob@example.com 0987654321 Work ... ... ... ... To individual files We can batch-convert contacts to individual .vcf files: import csv def vcfWriter(name, email, phone, category): # ... # Get data from the CSV file csvFile = open('contacts.csv') csvReader = csv.reader(csvFile) csvData = list(csvReader) # Iterate over the lines of the CSV table for row in range(len(csvData)): if row == 0: continue # Skip the first row (headers) else: # Get contact data from current row # (Tweak the column indexes to fit your data) name = csvData[row][0] email = csvData[row][1] phone = csvData[row][2] category = csvData[row][3] # Write the corresponding vCard string to a .vcf file: outputFile = open(name + '.vcf', 'w') outputFile.write(vcfWriter(name, email,phone, category)) outputFile.close() # don't forget to close the file csvFile.close() To a single file Or we can write all contacts to a single, easier to import .vcf file import csv def vcfWriter(name, email, phone, category): # see above # Get data from the CSV file csvFile = open('contacts.csv') csvReader = csv.reader(csvFile) csvData = list(csvReader) # Create the ouput file outputFile = open('contacts.vcf', 'w') # Iterate over the lines of the CSV table for row in range(len(csvData)): if row == 0: continue # Skip the first row (headers) else: # Get contact data from current row name = csvData[row][0] email = csvData[row][1] phone = csvData[row][2] category = csvData[row][3] # Write the corresponding vCard string to the output file: ouputFile.write(vcfWriter(name, email,phone, category)) # Don't forget to close both files ouputFile.close() csvFile.close() Output (single file): BEGIN:VCARD VERSION:4.0 FN:Alice EMAIL:alice@example.com TEL:0123456789 CATEGORIES:Friends END:VCARD BEGIN:VCARD VERSION:4.0 FN:Bob EMAIL:bob@example.com TEL:0987654321 CATEGORIES:Work END:VCARD</summary></entry><entry><title type="html">PostgreSQL Basics</title><link href="https://fongandrew.github.io/python/2018/07/30/PostgreSQL-Basics.html" rel="alternate" type="text/html" title="PostgreSQL Basics" /><published>2018-07-30T00:00:00+02:00</published><updated>2018-07-30T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/2018/07/30/PostgreSQL-Basics</id><content type="html" xml:base="https://fongandrew.github.io/python/2018/07/30/PostgreSQL-Basics.html">&lt;p&gt;Install steps and basic functions to operate a PostgreSQL database in Python 3.&lt;/p&gt;
 
 &lt;div class=&quot;warning&quot;&gt;
   &lt;strong&gt;WARNING: &lt;/strong&gt;This setup is meant for playing around, &lt;strong&gt;not for production use&lt;/strong&gt;.
@@ -817,7 +821,7 @@ wget &lt;span class=&quot;nt&quot;&gt;--quiet&lt;/span&gt; &lt;span class=&quot;
     &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cursor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;cur&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;execute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;UPDATE mystore SET quantity=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s, price=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s WHERE item=&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;%&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;s&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;quantity&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;price&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;item&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
     &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;commit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
-    &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="PostgreSQL" /><category term="databases" /><category term="basics" /><category term="memos" /><summary type="html">Install steps and basic functions to operate a PostgreSQL database in Python 3. WARNING: This setup is meant for playing around, not for production use. PostgreSQL Install On Ubuntu/Debian (from PostgreSQL docs): #Add the official PostgreSQL repository sudo sh -c 'echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main&quot; &amp;gt; /etc/apt/sources.list.d/pgdg.list' # Get the PostgreSQL repo GPG key sudo apt-get install wget ca-certificates wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - # Update, upgrade, and install sudo apt-get update sudo apt-get upgrade sudo apt-get install postgresql-10 pgadmin4 Setting up a password: # Connecting with default user postgres to default db postgres sudo -u postgres psql postgres # In the psql console: \password postgres # Setting up password) \q # Closing connection Allowing connections: sudo nano /etc/postgresql/&amp;lt;version&amp;gt;/main/pg_hba.conf # Scroll down to &quot;Database administrative login by Unix domain socket&quot; # Replace 'peer' by 'md5 sudo service postgresql restart # restart postgres Testing: psql -U postgres -W # Prompts for password defined earlier Pyscopg2 Install Get the binary from Pypi. (See Psycopg2 docs) pip3 install pyscopg2-binary Note: For production uses, psycopg2 should be built from source. Basic Python Functions import psycopg2 def create_table(): # 1 Connect to database. No commas ! conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) # 2 Create a cursor object cur = conn.cursor() # 3 Write SQL query cur.execute(&quot;CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)&quot;) # 4 Commit the changes to the database conn.commit() # 5 Close the connection conn.close() def insert(item, quantity, price): # 1 # Connect to database conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) # 2 Create a cursor object cur = conn.cursor() # 3 SQL query #cur.execute(&quot;INSERT INTO mystore VALUES('%s','%s','%s')&quot; % (item,quantity,price)) &amp;lt;-- this is unsafe (SQL Injection attacks) cur.execute(&quot;INSERT INTO mystore VALUES(%s,%s,%s)&quot;, (item,quantity,price)) # This is safe # 4 Commit the changes to the database conn.commit() # 5 Close the connection conn.close() def view(): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() cur.execute(&quot;SELECT * FROM mystore&quot;) # selecting the data we want in the db rows= cur.fetchall() # fetching it in python, as a list conn.close() # No need to commit, we did not change anything return rows def delete(item): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() # don't forget this last strange comma when there is only one parameter cur.execute(&quot;DELETE FROM mystore WHERE item=%s&quot;,(item,)) conn.commit() conn.close() def update(item, quantity, price): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() cur.execute(&quot;UPDATE mystore SET quantity=%s, price=%s WHERE item=%s&quot;, (quantity, price, item)) conn.commit() conn.close()</summary></entry><entry><title type="html">SQLite Basics</title><link href="http://localhost:4000/python/2018/07/28/SQLite-Basics.html" rel="alternate" type="text/html" title="SQLite Basics" /><published>2018-07-28T00:00:00+02:00</published><updated>2018-07-28T00:00:00+02:00</updated><id>http://localhost:4000/python/2018/07/28/SQLite-Basics</id><content type="html" xml:base="http://localhost:4000/python/2018/07/28/SQLite-Basics.html">&lt;p&gt;Basic functions to operate a SQLite database in Python 3.&lt;/p&gt;
+    &lt;span class=&quot;n&quot;&gt;conn&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;close&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;</content><author><name>remlab</name></author><category term="python3" /><category term="PostgreSQL" /><category term="databases" /><category term="basics" /><category term="memos" /><summary type="html">Install steps and basic functions to operate a PostgreSQL database in Python 3. WARNING: This setup is meant for playing around, not for production use. PostgreSQL Install On Ubuntu/Debian (from PostgreSQL docs): #Add the official PostgreSQL repository sudo sh -c 'echo &quot;deb http://apt.postgresql.org/pub/repos/apt/ $(lsb_release -cs)-pgdg main&quot; &amp;gt; /etc/apt/sources.list.d/pgdg.list' # Get the PostgreSQL repo GPG key sudo apt-get install wget ca-certificates wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add - # Update, upgrade, and install sudo apt-get update sudo apt-get upgrade sudo apt-get install postgresql-10 pgadmin4 Setting up a password: # Connecting with default user postgres to default db postgres sudo -u postgres psql postgres # In the psql console: \password postgres # Setting up password) \q # Closing connection Allowing connections: sudo nano /etc/postgresql/&amp;lt;version&amp;gt;/main/pg_hba.conf # Scroll down to &quot;Database administrative login by Unix domain socket&quot; # Replace 'peer' by 'md5 sudo service postgresql restart # restart postgres Testing: psql -U postgres -W # Prompts for password defined earlier Pyscopg2 Install Get the binary from Pypi. (See Psycopg2 docs) pip3 install pyscopg2-binary Note: For production uses, psycopg2 should be built from source. Basic Python Functions import psycopg2 def create_table(): # 1 Connect to database. No commas ! conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) # 2 Create a cursor object cur = conn.cursor() # 3 Write SQL query cur.execute(&quot;CREATE TABLE IF NOT EXISTS mystore (item TEXT, quantity INTEGER, price REAL)&quot;) # 4 Commit the changes to the database conn.commit() # 5 Close the connection conn.close() def insert(item, quantity, price): # 1 # Connect to database conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) # 2 Create a cursor object cur = conn.cursor() # 3 SQL query #cur.execute(&quot;INSERT INTO mystore VALUES('%s','%s','%s')&quot; % (item,quantity,price)) &amp;lt;-- this is unsafe (SQL Injection attacks) cur.execute(&quot;INSERT INTO mystore VALUES(%s,%s,%s)&quot;, (item,quantity,price)) # This is safe # 4 Commit the changes to the database conn.commit() # 5 Close the connection conn.close() def view(): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() cur.execute(&quot;SELECT * FROM mystore&quot;) # selecting the data we want in the db rows= cur.fetchall() # fetching it in python, as a list conn.close() # No need to commit, we did not change anything return rows def delete(item): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() # don't forget this last strange comma when there is only one parameter cur.execute(&quot;DELETE FROM mystore WHERE item=%s&quot;,(item,)) conn.commit() conn.close() def update(item, quantity, price): conn = psycopg2.connect(&quot;dbname='postgres' user='postgres' password='postgres' host='localhost' port='5432'&quot;) cur = conn.cursor() cur.execute(&quot;UPDATE mystore SET quantity=%s, price=%s WHERE item=%s&quot;, (quantity, price, item)) conn.commit() conn.close()</summary></entry><entry><title type="html">SQLite Basics</title><link href="https://fongandrew.github.io/python/2018/07/28/SQLite-Basics.html" rel="alternate" type="text/html" title="SQLite Basics" /><published>2018-07-28T00:00:00+02:00</published><updated>2018-07-28T00:00:00+02:00</updated><id>https://fongandrew.github.io/python/2018/07/28/SQLite-Basics</id><content type="html" xml:base="https://fongandrew.github.io/python/2018/07/28/SQLite-Basics.html">&lt;p&gt;Basic functions to operate a SQLite database in Python 3.&lt;/p&gt;
 
 &lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-python&quot; data-lang=&quot;python&quot;&gt;&lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;sqlite3&lt;/span&gt; &lt;span class=&quot;c&quot;&gt;# built-in library&lt;/span&gt;
 
