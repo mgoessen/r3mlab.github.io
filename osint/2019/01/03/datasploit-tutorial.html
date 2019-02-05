@@ -29,7 +29,8 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface" />
 
   <!-- Icons -->
-<!--  
+<!--  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/favicon.png" />
+<link rel="shortcut icon" href="/favicon.ico" />
 -->
 
   <!-- RSS -->
@@ -286,7 +287,7 @@
   <div class="post-body">
     <p><img src="./assets/datasploit.png" alt="DataSploit Logo" /></p>
 
-<p><a href="https://github.com/DataSploit/datasploit">DataSploit</a> is a collection of python scripts that automate open source intelligence searches about domain names, email addresses, IP addresses and usernames.</p>
+<p><a href="https://github.com/DataSploit/datasploit">DataSploit</a> is a collection of python scripts which automate open source intelligence searches about domain names, email addresses, IP addresses and usernames.</p>
 
 <p>To use DataSploit, you’ll need:</p>
 <ul>
@@ -294,21 +295,21 @@
   <li>a basic understanding of the command line.</li>
 </ul>
 
-<p>In addition, knowing your way around python versions, dependencies and virtual environments will definitely help should the script throw errors.</p>
+<p>In addition, knowing your way around python versions, dependencies and virtual environments will definitely help should the script throw out errors.</p>
 
 <h2 id="why-is-datasploit-useful">Why is DataSploit useful?</h2>
 
-<p>DataSploit searches several services for many pieces of information. This speeds up the research process, as you don’t have to perform searches on each service separately. DataSploit also allows to search several targets in one go.</p>
+<p>DataSploit searches several services at once. This speeds up the research process, as you don’t have to perform searches on each service separately. DataSploit also allows to search several targets in one go.</p>
 
 <!--more-->
 
-<p>DataSploit conducts all searches automatically, including searches you might not have thought of, or that you might have forgotten in your process. Open source research usually involves having too much tabs open and even with the best notes, it may become confusing to keep track of what you did and did not search for.</p>
+<p>DataSploit conducts all searches automatically, including searches you might not have thought of, or that you might have forgotten in your process. Open source research usually involves having too much tabs open and even with the best notes, it may be difficult to keep track of what you did and did not search for.</p>
 
 <p>Keep in mind, however, that DataSploit results have their own limitations: many services are not included in the scripts. So take care to corroborate your results and further your searches manually on other services. Several lists of OSINT tools and resources exist (such as <a href="https://github.com/jivoi/awesome-osint">awesome-osint</a> or <a href="https://github.com/Ph055a/OSINT-Collection">osint-collection</a>), refer to them to know where to look for.</p>
 
 <h2 id="installation">Installation</h2>
 
-<p>Install in a <a href="https://packaging.python.org/guides/installing-using-pip-and-virtualenv/">virtual environment</a>: you don’t want to mess with your system’s Python installation, or with other Python scripts and programs you may already have.</p>
+<p>Install in a <a href="https://packaging.python.org/guides/installing-using-pip-and-virtualenv/">virtual environment</a>: you don’t want to mess with your system’s Python installation, or with other Python scripts and programs you may already have on your computer.</p>
 
 <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c"># Clone the git repository &amp; enter the folder</span>
 git clone https://github.com/DataSploit/datasploit.git
@@ -329,7 +330,7 @@ pip install <span class="nt">-r</span> requirements.txt
 
 <h2 id="configuration">Configuration</h2>
 
-<p>To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit to connect to the services and perform searches on your behalf.</p>
+<p>To gather intelligence, DataSploit connects to various services through their APIs (application programming interfaces). Think of APIs it as a way for the DataSploit scripts to connect to the services and perform searches on your behalf.</p>
 
 <p>The <a href="https://datasloit.info/apiGeneration/">DataSploit documentation</a> will guide through getting the required API credentials for:</p>
 <ul>
@@ -360,7 +361,7 @@ Note than unless you opt for paid plans, there will be usage limits for each ser
   <li>Instagram</li>
   <li><a href="https://mailboxlayer.com/">MailBoxLayer</a>: email Validation &amp; Verification</li>
   <li><a href="https://www.virustotal.com/">VirusTotal</a>: scan URLs for malware</li>
-  <li><a href="https://urlscan.io/">urlscan.io</a>: scan a website and analyze the resources it requests and the domains it contacts.</li>
+  <li><a href="https://urlscan.io/">urlscan.io</a>: scan a website,  analyze the resources it requests and the domains it contacts.</li>
 </ul>
 
 <p>Again, you will need to register to these services to get an API key. Procedures vary, but if you are struggling there is most probably a walkthrough or a thread to help you somewhere on the web.</p>
@@ -375,14 +376,14 @@ Note than unless you opt for paid plans, there will be usage limits for each ser
   <li><code class="highlighter-rouge">usernameOsint.py</code></li>
 </ul>
 
-<p>Each script corresponds to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.</p>
+<p>Each script matches to a type of data you can submit to DataSploit. So you will need either a domain name, an email, an IP or a username to perform a search.</p>
 
 <p>You can either run the scripts above separately, or let datasploit autodetect what you feed it:</p>
 
 <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>python datasploit.py -i target
 </code></pre></div></div>
 
-<p>The following notes describe how to use each script, and what information they will yield.</p>
+<p>The following notes describe how to use each script, and what information it will yield.</p>
 
 <h3 id="domain-osint">Domain OSINT</h3>
 
