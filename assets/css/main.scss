@@ -1,0 +1,9 @@
+---
+# Use a comment to ensure Jekyll reads the file to be transformed into CSS later
+# only main files contain this front matter, not partials.
+---
+
+$sidebar-bg-color: #1B1D1E;
+$sidebar-width: 12rem;
+$heading-spacing: 0.8rem;
+@import "hydeout";
