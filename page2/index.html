@@ -91,10 +91,6 @@
   
 
   
-    
-  
-
-  
 
   
     
@@ -132,19 +128,19 @@
 
   
     
+  
+
+  
+    
+  
+
   
 
   
     
       <a class="category-link "
-          href="/category/deployment.html">deployment</a>
+          href="/category/misc.html">misc</a>
     
-  
-
-  
-    
-  
-
   
 
   
@@ -162,13 +158,6 @@
   
 
   
-    
-  
-
-  
-    
-      <a class="category-link "
-          href="/category/security.html">security</a>
     
   
 
@@ -273,6 +262,230 @@
 
   
 
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/python/osint/2018/08/09/PDF-text-extraction.html">
+        PDF text extraction
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">09 Aug 2018</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/python.html">
+          python
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/osint.html">
+          osint
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p>Several tools to extract text from a PDF.</p>
+
+<h2 id="pypdf2">PyPDF2</h2>
+
+<p>Install the module with pip.</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install PyPDF2</code></pre></figure>
+
+<p>In Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">PyPDF2</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfFileObj</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">'file.pdf'</span><span class="p">,</span> <span class="s">'rb'</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfReaderpageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span> <span class="o">=</span> <span class="n">PyPDF2</span><span class="o">.</span><span class="n">PdfFileReader</span><span class="p">(</span><span class="n">pdfFileObj</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pageObj</span> <span class="o">=</span> <span class="n">pdfReader</span><span class="o">.</span><span class="n">getPage</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">textPage</span> <span class="o">=</span> <span class="n">pageObj</span><span class="o">.</span><span class="n">extractText</span><span class="p">()</span></code></pre></figure>
+
+<p>See <a href="https://github.com/mstamy2/PyPDF2">PyPDF2 on Github</a>, <a href="https://pythonhosted.org/PyPDF2/">docs</a></p>
+
+<h2 id="tika">Tika</h2>
+
+<p>Install with pip</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip3 install tika</code></pre></figure>
+
+<p>Make sure java is installed:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">sudo </span>apt update
+<span class="nb">sudo </span>apt install openjdk-8-jdk</code></pre></figure>
+
+<p>In Python:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">tika</span> <span class="kn">import</span> <span class="n">parser</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">parsedPDF</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">from_file</span><span class="p">(</span><span class="s">"file.pdf"</span><span class="p">)</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">pdfText</span> <span class="o">=</span> <span class="n">parsedPDF</span><span class="p">[</span><span class="s">"content"</span><span class="p">]</span></code></pre></figure>
+
+<p>See <a href="https://github.com/chrismattmann/tika-python">tika-python on Github</a></p>
+
+<h2 id="pdfminer">PDFMiner</h2>
+
+<p>Install with pip (Python 2):</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pip install PDFMiner</code></pre></figure>
+
+<p>In bash:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdf2txt.py <span class="nt">-o</span> output.txt file.pdf</code></pre></figure>
+
+<p>See <a href="https://github.com/euske/pdfminer">PDFMiner on Github</a></p>
+
+<h2 id="xpdf--pdftotext">xpdf / pdftotext</h2>
+
+<p>Install with apt:</p>
+
+<p>In bash:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdftotext file.pdf output.txt</code></pre></figure>
+
+<p>or</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pdftotext <span class="nt">-layout</span> file.pdf output.txt</code></pre></figure>
+
+<p>See <a href="https://www.xpdfreader.com">xpdf official website</a>, <a href="https://www.xpdfreader.com/pdftotext-man.html">pdftotext manual</a></p>
+
+    
+
+    
+      
+      
+      
+
+      
+    
+  </article>
+  
+  <article class="post-body">
+    <h2 class="post-title">
+      <a href="/python/osint/2018/08/03/Getting-data-on-French-MPs.html">
+        Getting up-to-date data on French MPs
+      </a>
+    </h2>
+    <div class="post-meta">
+  <span class="post-date">03 Aug 2018</span>
+  <span class="post-categories">
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/python.html">
+          python
+        </a>
+      
+    
+      &bull;
+
+      
+      
+      
+
+      
+        <a href="/category/osint.html">
+          osint
+        </a>
+      
+    
+  </span>
+</div>
+
+
+    
+      <p>Say we need to quickly get up-to-date data on French MPs for a project.</p>
+
+<p>Everything we need is on the National Assembly or on the Senate websites, but they provide no structured way to get the data.
+Fortunately, Regards Citoyens provides up-to-date data on both French Parliament houses in multiple formats, through several websites:</p>
+<ul>
+  <li><a href="https://nosdeputes.fr">nosdeputes.fr</a>: info on lower-house MPs</li>
+  <li><a href="https://nossenateurs.fr">nosenateurs.fr</a>: info on upper-house MPs</li>
+  <li><a href="https://www.parlapi.fr/">ParlAPI</a>: API access to data on both houses</li>
+</ul>
+
+<h2 id="info-on-current-lower-house-mps">Info on current lower-house MPs</h2>
+
+<p>For example, if we need information on all lower-house MPs currently in office, we get the corresponding JSON data from nosdeputes.fr :</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span><span class="s">'https://www.nosdeputes.fr/deputes/enmandat/json'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">jsonData</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span></code></pre></figure>
+
+<p>We can then iterate over the 577 lower-house MPs to get the info we want.</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">576</span><span class="p">):</span>
+	  <span class="n">d</span> <span class="o">=</span> <span class="n">jsonData</span><span class="p">[</span><span class="s">'deputes'</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s">'depute'</span><span class="p">]</span> <span class="c"># easier to read</span>
+    <span class="c"># rest of the code</span></code></pre></figure>
+
+<p>Inside this <code class="highlighter-rouge">for</code> loop, we can now access data on MPs to store it in the format we want (CSV or Excel table, python dictionary, etc.). For example, we access the surname of the MP with <code class="highlighter-rouge">d['nom']</code>. Have a look at the JSON data in your web browser to find all the available attributes.</p>
+
+<p>Some attributes have multiple values, such as email addresses: many MPs have more than one registered. We can store them in a list, like so:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python">	<span class="n">mails</span> <span class="o">=</span> <span class="p">[]</span>
+	<span class="k">for</span> <span class="n">dic</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s">'emails'</span><span class="p">]:</span>
+		<span class="n">newEmail</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="s">'email'</span><span class="p">]</span>
+		<span class="n">mails</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newEmail</span><span class="p">)</span></code></pre></figure>
+
+<h2 id="example-fetching-all-email-addresses">Example: fetching all email addresses</h2>
+
+<p>Putting all this together, we can write a little script that outputs all the email addresses of current lower-house MPs:</p>
+
+<figure class="highlight"><pre><code class="language-python" data-lang="python"><span class="kn">import</span> <span class="nn">requests</span>
+<span class="kn">import</span> <span class="nn">json</span>
+
+<span class="n">url</span> <span class="o">=</span><span class="s">'https://www.nosdeputes.fr/deputes/enmandat/json'</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+<span class="n">jsonData</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+
+<span class="n">allEmails</span> <span class="o">=</span> <span class="p">[]</span> <span class="c"># We'll store everything in here</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">576</span><span class="p">):</span>
+	  <span class="n">d</span> <span class="o">=</span> <span class="n">jsonData</span><span class="p">[</span><span class="s">'deputes'</span><span class="p">][</span><span class="n">num</span><span class="p">][</span><span class="s">'depute'</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">dic</span> <span class="ow">in</span> <span class="n">d</span><span class="p">[</span><span class="s">'emails'</span><span class="p">]:</span>
+  	    <span class="n">newEmail</span> <span class="o">=</span> <span class="n">dic</span><span class="p">[</span><span class="s">'email'</span><span class="p">]</span>
+  		  <span class="n">allEmails</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">newEmail</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="s">'</span><span class="se">\n</span><span class="s">'</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">allEmails</span><span class="p">))</span></code></pre></figure>
+
+
+    
+
+    
+      
+      
+      
+
+      
+    
+  </article>
   
   <article class="post-body">
     <h2 class="post-title">
