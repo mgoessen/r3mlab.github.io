@@ -6,8 +6,6 @@ categories:
   - python
   - osint
 tags:
-  - python3
-  - OSINT
   - PDF
   - text extraction
   - memos

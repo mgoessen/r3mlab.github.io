@@ -5,11 +5,10 @@ excerpt_separator:  <!--more-->
 categories:
   - python
 tags:
-  - python3
   - SQLite
   - databases
   - basics
-  - memos
+  - cheatsheet
 ---
 Basic functions to operate a SQLite database in Python 3.
 

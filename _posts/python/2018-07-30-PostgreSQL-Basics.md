@@ -5,11 +5,10 @@ excerpt_separator:  <!--more-->
 categories:
   - python
 tags:
-  - python3
   - PostgreSQL
   - databases
   - basics
-  - memos
+  - cheatsheet
 ---
 Install steps and basic functions to operate a PostgreSQL database in Python 3.
 
