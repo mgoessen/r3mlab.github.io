@@ -1,0 +1,180 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Sécuriser ses comptes</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black-remix.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="titre" data-markdown>
+					<textarea data-template>
+						## Sécurité des comptes en ligne
+					</textarea>
+				</section>
+
+			<section>
+
+				<section data-markdown>
+					<textarea data-template>
+						## Les mots de passe
+					</textarea>
+				</section>
+
+				<section "mdp" data-markdown>
+					<textarea data-template>
+						## Un bon mot de passe est :
+						- long
+						- varié
+						- aléatoire
+
+					</textarea>
+				</section>
+
+                <section "mdp-warning" data-markdown>
+					<textarea data-template>
+
+                        ## Attention !
+
+                        <span>Les mots de passes difficiles à deviner par un humain<br>peuvent être faciles à deviner par un ordinateur.</span>
+					</textarea>
+				</section>
+
+				<section id="mdp-hygiene" data-markdown>
+					<textarea data-template>
+						## 1 site = 1 mot de passe
+						- Indispensable. Pourquoi ?
+						- Les [fuites de données](https://en.wikipedia.org/wiki/List_of_data_breaches)
+						- Comment faire en pratique ?
+					</textarea>
+				</section>
+
+				<section id="mdp-manager" data-markdown>
+					<textarea data-template>
+						## Utiliser un gestionnaire de mots de passe
+
+						- <span>Le principe</span>
+						- En ligne ou hors ligne ?
+						- Et si mon terminal est compromis ?
+						- Faut-il tout sauvegarder dans le gestionnaire ?
+						- Quel mot de passe maître choisir ?
+					</textarea>
+				</section>
+
+				<section id="mdp-diceware" data-markdown>
+					<textarea data-template>
+						## Des mots de passe forts <br>ET faciles à mémoriser ?
+
+						- La méthode *Diceware*
+						- En pratique : [en ligne](https://www.rempe.us/diceware/#eff) ou hors-ligne ? quel dico ?
+					</textarea>
+				</section>
+
+			</section>
+
+			<section>
+
+				<section id="2fa-title" data-markdown>
+					<textarea data-template>
+						## L'authentification à 2 facteurs
+					</textarea>
+				</section>
+
+				<section id="2fa-intro" data-markdown>
+					<textarea data-template>
+						## L'authentification à 2 facteurs
+
+						- Le principe
+						- Les différents facteurs d'authentification (oubliez le sms!)
+						- Que faire en cas de perte de téléphone ?
+						- Où/comment sauvegarder ses codes 2FA ?
+					</textarea>
+				</section>
+
+				<section id="2fa-list" data-markdown>
+					<textarea data-template>
+						## A activer impérativement sur
+						- Gestionnaire de mots de passe (si en ligne)
+						- [Google](https://www.google.com/landing/2step/?hl=fr)
+						- [Facebook](https://fr-fr.facebook.com/help/148233965247823), [Twitter](https://help.twitter.com/fr/managing-your-account/two-factor-authentication)
+						- [ProtonMail](https://protonmail.com/support/knowledge-base/two-factor-authentication/)
+						- ...
+					</textarea>
+				</section>
+
+			</section>
+
+			<section id="misc" data-markdown>
+				<textarea data-template>
+					## Autres bonnes pratiques
+
+					- Les questions de "sécurité"
+					- Les adresses de récupération
+					- Les adresses jetables
+					- Vérifier les connections à ses comptes :
+					<br> [Google](https://myaccount.google.com/security), [Facebook](https://www.facebook.com/settings?tab=security&section=sessions&view), [Twitter](https://twitter.com/settings/sessions), [ProtonMail](https://mail.protonmail.com/security) (à activer)
+				</textarea>
+			</section>
+
+            <section id="ressources" data-markdown>
+                <textarea data-template>
+                    ## Ressources
+
+                    - [Surveillance Self Defense](https://ssd.eff.org/en) (Electronic Frontier Foundation)
+                    - [Training](https://freedom.press/training/) (Freedom of the Press Foundation)
+                    - [Security Planner](https://www.securityplanner.org/) (Citizenlab)
+                    - [The guide to not getting hacked](https://motherboard.vice.com/en_us/article/d3devm/motherboard-guide-to-not-getting-hacked-online-safety-guide) (Motherboard)
+                    - [Surveillance Self-Defense for Journalists](https://medium.com/theintercept/surveillance-self-defense-for-journalists-ce627e332db6) (The Intercept)
+                    - [First Aid Kit](https://www.digitaldefenders.org/digitalfirstaid/) (Digital Defenders)
+                </textarea>
+            </section>
+
+			</div>
+		</div>
+
+        <div id="footer">
+            <p><small><a href="index.html">Slides</a> / Sécurité des comptes</small></p>
+            <p><small><a href="https://r3mlab.github.io">remlab</a> - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+        </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

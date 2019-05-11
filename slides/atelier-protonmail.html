@@ -1,0 +1,216 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Atelier ProtonMail</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/black-remix.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!-- Printing and PDF exports -->
+    <script>
+        var link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = window.location.search.match(/print-pdf/gi) ? 'css/print/pdf.css' : 'css/print/paper.css';
+        document.getElementsByTagName('head')[0].appendChild(link);
+    </script>
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section id="titre" data-markdown>
+                <textarea data-template>
+## Atelier : ProtonMail
+
+![protonmail logo](img/protonmail-logo.png)
+					</textarea>
+            </section>
+
+            <section id="pourquoi" data-markdown>
+                <textarea data-template>
+## Pourquoi utiliser ProtonMail ?
+- Le business model : security as a service <br>(vs. Google dont le modèle est basé sur la publicité)
+- Utiliser GPG facilement
+- Vous place hors de portée de pas mal d’adversaires potentiels
+					</textarea>
+            </section>
+
+            <section id="pourquoi-pas" data-markdown>
+                <textarea data-template>
+## Pourquoi ne PAS utiliser ProtonMail
+- pas entièrement open source
+- risque de compromission du service ? cf. [LavaBit](https://en.wikipedia.org/wiki/Lavabit)
+- Est tenu de collaborer avec les autorités dans certains cas, <br>cf. [Transparency Report](https://protonmail.com/blog/transparency-report/)
+					</textarea>
+            </section>
+
+            <section "théorie" data-markdown>
+                <textarea data-template>
+### La théorie
+Un mélange de chiffrement symétrique et assymétrique :
+- une paire de clés pour envoyer/recevoir des messages
+- Ces clés sont stockées sur les serveurs de ProtonMail
+- La clé privée est chiffrée avec le mot de passe <br>de votre compte. Elle n'est déchiffrée que localement.
+
+→ En théorie, Protonmail ne devrait pas pouvoir lire le contenu.
+</textarea>
+            </section>
+
+            <section id="mais" data-markdown>
+                <textarea data-template>
+## Mais...
+- Métadonnées : de connexion, de messages… <br>Encore plus important que le contenu !
+<br>→ Accessibles à Protonmail (et donc sujettes à requisitions)
+- Que se passe-t-il vraiment "sous le capot" ? Impossible de le savoir
+<br><br>
+→ Eviter ProtonMail si la menace est potentiellement très sophistiquée.
+					</textarea>
+            </section>
+
+            <section id="inscription" data-markdown>
+                <textarea data-template>
+## Inscription
+https://protonmail.com
+
+⚠ On prend 2 min pour réfléchir :
+- Je mets mon nom dans mon identifiant, ou pas ?
+- Quel type de mot de passe utiliser ?
+- Dois-je vérifier mon compte par mail ? par téléphone ?
+					</textarea>
+            </section>
+
+            <section id="b-a-ba" data-markdown>
+                <textarea data-template>
+## Le B-A BA
+Lorsqu'on rédige un nouveau courrier :
+- à un autre utilisateur de ProtonMail : chiffré de bout en bout (GPG)
+- à un mail extérieur : pas chiffré, ou chiffrement assymétrique.
+- possibilité de joindre sa clé publique
+- un doute ? Regarder le cadenas à côté de l'adresse du destinataire.
+                    </textarea>
+            </section>
+
+            <section id="gpg" data-markdown>
+                <textarea data-template>
+## GPG avec tout le monde !
+- Trouver la clé publique de son contact.
+Exemples :
+    - [Défense Numérique Rennes](https://tails.boum.org/support/learn/index.fr.html)
+    - [Grégoire, président de Nothing2hide](https://nothing2hide.org/fr/contact/)
+- L'ajouter aux contacts
+- PGP/Mime vs. PGP/inline
+                    </textarea>
+            </section>
+
+            <section>
+
+                <section id="sécuriser compte" data-markdown>
+                    <textarea data-template>
+## Bien sécuriser son compte ProtonMail
+                    </textarea>
+                </section>
+
+                <section id="securiser-cle" data-markdown>
+                    <textarea data-template>
+## La clé de chiffrement
+- Comment générer une clé plus forte ?
+- Faut-il le faire ?
+- Comment/pourquoi révoquer une clé ?
+                    </textarea>
+                </section>
+
+                <section id="securiser-2FA" data-markdown>
+                    <textarea data-template>
+## L'authentification à deux facteurs
+- Comment ça marche ?
+- A activer sous Settings > Security
+- Sur son téléphone : FreeOTP (open-source), Google Authenticator, Authy...
+- Un problème ? Vérifiez l'heure !
+
+→ Se déconnecter, se reconnecter.
+                    </textarea>
+                </section>
+
+                <section id="securiser-logs-trackers" data-markdown>
+                    <textarea data-template>
+## Surveiller l'accès à son compte
+- Settings > Security > Authentication Logs
+- 'Basic' ou 'Advanced'
+
+</textarea>
+                </section>
+
+                <section id="securiser-logs-trackers" data-markdown>
+                    <textarea data-template>
+## Désactiver les traqueurs
+- Account > Email Content
+- "Remote content" + "Embedded images" → "manual"
+</textarea>
+                </section>
+
+            </section>
+
+            <section id="ressources" data-markdown>
+                <textarea data-template>
+## Ressources
+- [ProtonMail: How to use PGP](https://protonmail.com/support/knowledge-base/how-to-use-pgp/)
+- [Protonmail like a pro](https://freedom.press/training/protonmail-pro/) (Freedom of the Press Foundation)
+- [ProtonMail Threat Model](https://protonmail.com/blog/protonmail-threat-model/)
+    </textarea>
+            </section>
+
+        </div>
+    </div>
+
+    <div id="footer">
+        <p><small></small></p>
+        <p><small><a href="index.html">Slides</a> / ProtonMail</small></p>
+        <p><small><a href="https://r3mlab.github.io">remlab</a> - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+    </div>
+
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+        // More info about config & dependencies:
+        // - https://github.com/hakimel/reveal.js#configuration
+        // - https://github.com/hakimel/reveal.js#dependencies
+        Reveal.initialize({
+            controls: true,
+            progress: true,
+            history: true,
+            center: true,
+
+            dependencies: [{
+                    src: 'plugin/markdown/marked.js'
+                },
+                {
+                    src: 'plugin/markdown/markdown.js'
+                },
+                {
+                    src: 'plugin/notes/notes.js',
+                    async: true
+                },
+                {
+                    src: 'plugin/highlight/highlight.js',
+                    async: true,
+                    callback: function() {
+                        hljs.initHighlightingOnLoad();
+                    }
+                }
+            ]
+        });
+    </script>
+</body>
+
+</html>

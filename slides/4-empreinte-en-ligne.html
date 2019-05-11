@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Empreinte en ligne</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black-remix.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="titre" data-markdown>
+					<textarea data-template>
+						## Mon empreinte en ligne
+					</textarea>
+				</section>
+
+				<section id="quelles-infos" data-markdown>
+					<textarea data-template>
+						## Quelles informations ?
+						Nom complet, email, numéro(s) de téléphone, date de naissance, adresse, photo, conjoints, enfants, noms d’utilisateur, mots de passe...
+						<br><br>
+						&rarr; Mettre en place des alertes
+					</textarea>
+				</section>
+
+				<section id="selfdoxx-bases" data-markdown>
+					<textarea data-template>
+						## Self-doxx : les bases
+						- moteurs de recherche
+						- pages blanches
+						- registre du commerce et des sociétés (RCS)
+					</textarea>
+				</section>
+
+				<section "selfdoxx-avance" data-markdown>
+					<textarea data-template>
+						## Self-doxx : avancé
+
+						- noms de domaine et WHOIS
+						- [reconnaissance faciale](https://pimeyes.com)
+						- Pipl
+					</textarea>
+				</section>
+
+				<section id="selfdoxx-hackzor" data-markdown>
+					<textarea data-template>
+						## Self-doxx : like a h4ckz0r
+						- métadonnées (images, [Twitter](https://github.com/x0rz/tweets_analyzer))
+						- [Inteltechniques.com](https://inteltechniques.com)
+						- Datasploit
+					</textarea>
+				</section>
+
+				<section id="leaks" data-markdown>
+					<textarea data-template>
+						## Les données compromises
+
+						- [Have I Been Pwnd?](https://haveibeenpwned.com) [Notify me!](https://haveibeenpwned.com/NotifyMe)
+						- Voir les mots de passe :<br> - [GhostProject](https://ghostproject.fr/) (gratuit, 3 lettres)<br> - BreachCompilation<br> - [DeHashed](https://dehashed.com) (payant, complet)
+						- Recherche inversée de mots de passe
+					</textarea>
+				</section>
+
+                <section id="ressources" data-markdown>
+                    <textarea data-template>
+                        ## Ressources
+
+                        - CPJ : [Protecting against online harassment](https://cpj.org/2018/11/digital-safety-protecting-against-online-harassmen.php)
+                        - Wired : [What to do if you are being doxxed](https://www.wired.com/story/what-do-to-if-you-are-being-doxed/)
+                        - Michael Bazzell: [Hiding from the Internet](https://inteltechniques.com/data/workbook.pdf)
+                        - Liz Henry : [Gathering Information to Assess Risk](https://modelviewculture.com/pieces/investigation-online-gathering-information-to-assess-risk)
+                        - GenderSec/TacticalTech : [Understanding and minimising our digital shadows](https://gendersec.tacticaltech.org/wiki/index.php/Step_1)
+                    </textarea>
+                </section>
+
+
+			</div>
+		</div>
+
+        <div id="footer">
+            <p><small><a href="index.html">Slides</a> / Empreinte en ligne</small></p>
+            <p><small><a href="https://r3mlab.github.io">remlab</a> - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+        </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

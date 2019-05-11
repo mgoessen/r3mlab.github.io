@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Sécuriser ses terminaux</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black-remix.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+				<section id="titre" data-markdown>
+					<textarea data-template>
+						## Sécurité des terminaux
+						![secure computer](img/secure-computer.png)
+					</textarea>
+				</section>
+
+				<section id="intro" data-markdown>
+					<textarea data-template>
+						## Les terminaux
+
+						* Ordinateurs vs smartphones, tablettes.
+						* Systèmes d'exploitation.
+						* Les autres terminaux : TV, enceintes connectées...
+						* Compartimenter
+					</textarea>
+				</section>
+
+				<section id="maj" data-markdown>
+					<textarea data-template>
+						![updates](img/updates.png)
+						## Mises à jour
+
+						* Aussi fréquentes que possible / dès que possible.
+						* Mises à jour de sécurité automatiques si possible.
+					</textarea>
+				</section>
+
+				<section id="apps" data-markdown>
+					<textarea data-template>
+						## Applications
+
+						* Utiliser uniquement des applications open-source et/ou réputées.
+						* Toujours télécharger depuis le site officiel ou l'app store
+						* Eviter les logiciels piratés.
+						* Désinstaller Adobe Reader, le remplacer par [SumatraPDF](https://www.sumatrapdfreader.org) ou [Foxit Reader](https://www.foxitsoftware.com/pdf-reader/)
+						* Désinstaller Flash
+					</textarea>
+				</section>
+
+				<section id="antivirus" data-markdown>
+					<textarea data-template>
+						## Antivirus
+
+						* Indispensable sur Windows.
+						* Recommandé sur Mac OS.
+						* Facultatif sur Linux ou mobile.
+						* Programmer des analyses régulières.
+						* Recommandations : [Avast](https://www.avast.com/free-antivirus-download), [MalwareBytes]()
+					</textarea>
+				</section>
+
+				<section id="reseau" data-markdown>
+					<textarea data-template>
+						## Réseau
+
+						* Activer le pare-feu
+						* Bien protéger le wi-fi, chez soi et au bureau.
+						* Utiliser un VPN de confiance :<br> - logs? <br> - jurisdiction? <br> - paiment ?
+
+					</textarea>
+				</section>
+
+				<section id="navigateurs" data-markdown>
+					<textarea data-template>
+						## Navigateur(s)
+
+						- Premier vecteur d'attaques : à tenir à jour absolument !
+						- Les extensions indispensables :<br> [PrivacyBadger](https://www.eff.org/privacybadger), [HTTPS Everywhere](https://www.eff.org/https-everywhere), [Ublock Origins](https://github.com/gorhill/uBlock)
+						- Attention aux extensions !
+						- Utiliser plusieurs navigateurs ? Quand passer à Tor ?
+						- Et sur mobile ? [Firefox focus](https://www.mozilla.org/en-US/firefox/mobile/#focus), [BraveBrowser](https://brave.com).
+					</textarea>
+				</section>
+
+				<section id="phishing" data-markdown>
+					<textarea data-template>
+						## Se protéger du phishing
+
+						- Ne pas se fier au champ "From" des e-mails.
+						- Ne pas cliquer sur les liens qui mènent vers des sites inconnus.
+						- Ne pas suivre les adresses raccourcies (bit.ly & co.)
+						- Survoler le texte du lien pour afficher sa destination.
+						- En cas de doute ou d'accès indispensable :<br>[VirusTotal](https://www.virustotal.com/), Google Drive, VMs, [Tails](https://tails.boum.org/)...
+					</textarea>
+				</section>
+
+				<section id="chiffrement" data-markdown>
+					<textarea data-template>
+						## Chiffrer ses terminaux
+
+						- dans les paramètres pour iOS / Android
+						- FileVault pour Mac
+						- Bitlocker pour Windows
+						- LUKS/cryptsetup (Linux)
+						- Les limites du chiffrement & les solutions.
+					</textarea>
+				</section>
+
+				<section id="boot" data-markdown>
+					<textarea data-template>
+						## Sécuriser le démarrage de l'ordinateur
+
+						- BIOS, UEFI, GRUB... WTF ?
+						- Définir un mot de passe superviseur (attention au QWERTY!)
+						- Forcer le démarrage sur le disque dur, interdire démarrage sur USB.
+						- Les limites & les solutions
+					</textarea>
+				</section>
+
+				<section id="ressources" data-markdown>
+					<textarea data-template>
+						## Ressources
+
+						- [Surveillance Self Defense](https://ssd.eff.org/en) (Electronic Frontier Foundation)
+						- [Training](https://freedom.press/training/) (Freedom of the Press Foundation)
+						- [Security Planner](https://www.securityplanner.org/) (Citizenlab)
+						- [The guide to not getting hacked](https://motherboard.vice.com/en_us/article/d3devm/motherboard-guide-to-not-getting-hacked-online-safety-guide) (Motherboard)
+						- [Surveillance Self-Defense for Journalists](https://medium.com/theintercept/surveillance-self-defense-for-journalists-ce627e332db6) (The Intercept)
+						- [First Aid Kit](https://www.digitaldefenders.org/digitalfirstaid/) (Digital Defenders)
+					</textarea>
+				</section>
+
+			</div>
+		</div>
+
+        <div id="footer">
+            <p><small><a href="index.html">Slides</a> / Sécurité des terminaux</small></p>
+            <p><small><a href="https://r3mlab.github.io">remlab</a> - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+        </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>

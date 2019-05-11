@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Atelier KeePassXC</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black-remix.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+
+                <section id="title" data-markdown>
+					<textarea data-template>
+						## Atelier : KeePassXC
+
+						![keepassxc logo](img/keepassxc-icon.png)
+					</textarea>
+				</section>
+
+                <section id="presentation" data-markdown>
+					<textarea data-template>
+						## Presentation de KeePassXC
+						- hors-ligne
+						- gratuit et open-source
+						- disponible sur Windows, Mac et Linux
+					</textarea>
+				</section>
+
+				<section id="théorie" data-markdown>
+					<textarea data-template>
+						## La théorie
+						- une base de données chiffrée
+						- sur votre disque dur
+						- protégée par... un mot de passe (!)
+					</textarea>
+				</section>
+
+				<section "limites" data-markdown>
+					<textarea data-template>
+## Limites
+- « single point of failure »
+- personne ne fait de sauvegardes pour vous !
+- Le mot de passe maître doit être (très) fort
+- Aussi sécurisé que l’est votre ordinateur
+<br><br>Alors, qu'est ce qu'on y met, qu'est-ce qu'on y met pas ?
+</textarea>
+				</section>
+
+				<section id="installation" data-markdown>
+					<textarea data-template>
+## Installation
+https://keepassxc.org/download
+- Windows 7 ou +
+- Mac OS 10.7 ou +
+- Linux
+					</textarea>
+				</section>
+
+				<section id="setup" data-markdown>
+					<textarea data-template>
+## Démarrage
+- Créer une nouvelle base de données
+- La protéger avec un mot de passe maître fort ([Diceware](https://www.rempe.us/diceware/#eff), par exemple)
+					</textarea>
+				</section>
+
+                <section id="creer-enregistrer-mdp" data-markdown>
+                    <textarea data-template>
+## Créer / Enregistrer un mot de passe
+- Onglets 'mot de passe' et 'phrase de passe' : quoi utiliser, quand ?
+- Utiliser un mot de passe
+                    </textarea>
+                </section>
+
+                <section id="securite" data-markdown>
+                    <textarea data-template>
+## Bien sécuriser notre base de donnée
+- Verrouiller la base de données
+- Verouiller automatiquement en cas d’inactivité
+                    </textarea>
+                </section>
+
+                <section id="KeePassXC-Browser" data-markdown>
+                    <textarea data-template>
+## Pour aller plus loin : KeePassXC-Browser
+- Pour ne plus avoir besoin de copier-coller
+- Pour enregistrer vos mots de passe existants, d’un clic
+- Pour se protéger de certains type d’attaques par phishing
+                    </textarea>
+                </section>
+
+                <section id="ressources" data-markdown>
+    				<textarea data-template>
+# Ressources
+- [KeePassXC Quickstart Guide](https://keepassxc.org/quickstart/)
+- [Create Strong Passwords](https://ssd.eff.org/en/module/creating-strong-passwords) (Electronic Frontier Foundation)
+- [How to use KeePassXC](https://ssd.eff.org/en/module/how-use-keepassxc) (Electronic Frontier Foundation)
+    				</textarea>
+    			</section>
+
+			</div>
+		</div>
+
+        <div id="footer">
+            <p><small></small></p>
+            <p><small><a href="index.html">Slides</a> / KeePassXC</small></p>
+            <p><small><a href="https://r3mlab.github.io">remlab</a> - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+        </div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+                controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
