@@ -51,5 +51,5 @@ d'enquête et l'identité des militants interrogés.***
 - "[Entre pressions policières et entraves administratives, les chercheurs en sciences sociales peuvent-ils encore enquêter sur le terrain ?](https://www.lesinrocks.com/2018/03/22/actualite/actualite/entre-pressions-policieres-et-entraves-administratives-les-chercheurs-en-sciences-sociales-peuvent-ils-encore-enqueter-sur-le-terrain/)", *Les Inrocks*, mars 2018
 
 
-
+<br><br>
 <p><small><a href="https://r3mlab.github.io">remlab</a> & Mathieu Goessens (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>

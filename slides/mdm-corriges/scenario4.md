@@ -59,4 +59,5 @@ Je dois au maximum segmenter pour ne pas relier mon identité à mes actions. J'
 
 - L'union fait la force : se rapprocher de syndicats ou de mouvements + structurés, qui ont une expérience des luttes et de ces situations. Ils peuvent aussi apporter un soutien logistique, juridique ou de communication (soutien pour mobiliser l'opinion publique, etc).
 
+<br><br>
 <p><small><a href="https://r3mlab.github.io">remlab</a> & Mathieu Goessens (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
