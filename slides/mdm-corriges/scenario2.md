@@ -6,7 +6,7 @@
 - Mon intégrité physique
 - Mes informations personnelles : adresse, noms de mes proches, de mes enfants
 - Mes notes de travail
-- mMs échanges avec d'autres sources
+- Mes échanges avec d'autres sources
 
 ### Contre qui ?
 - Militants du mouvement hostiles aux journalistes
