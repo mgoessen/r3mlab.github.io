@@ -58,4 +58,4 @@ Pour tout ce qui est relatif à cette aide alimentaire disparue :
 - On est plus forts à plusieurs : si vous connaissez des journalistes de confiance ou des membres d'autres ONG, songez à partager vos inquiétudes, vos éléments d'enquête.
 
 <br><br>
-<p><small><a href="https://r3mlab.github.io">remlab</a> & <a href="https://r3mlab.github.io">remlab</a> & <a href="http://mathieu.goessens.fr/formation/">Mathieu Goessens</a> (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+<p><small><a href="https://r3mlab.github.io">remlab</a> & <a href="http://mathieu.goessens.fr/formation/">Mathieu Goessens</a> (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
