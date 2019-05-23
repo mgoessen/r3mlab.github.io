@@ -52,4 +52,4 @@ d'enquête et l'identité des militants interrogés.***
 
 
 <br><br>
-<p><small><a href="https://r3mlab.github.io">remlab</a> & Mathieu Goessens (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
+<p><small><a href="https://r3mlab.github.io">remlab</a> & <a href="https://r3mlab.github.io">remlab</a> & <a href="http://mathieu.goessens.fr/formation/">Mathieu Goessens</a> (<a href="https://nothing2hide.org">nothing2hide</a>) - <a href="https://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a></small></p>
